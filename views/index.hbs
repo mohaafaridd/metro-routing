@@ -1,12 +1,29 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<select class="custom-select my-2">
-    <option selected>Open this select menu</option>
-    <option value="1">One</option>
-</select>
+<form action="/results" method="get" class="p-2">
+    <select class="custom-select my-2" name="source">
+        {{#each lines}}
+        <optgroup label="line">
+            {{#each this}}
+            {{ this }}
+            <option>{{ this }}</option>
+            {{/each}}
+        </optgroup>
+        {{/each}}
+    </select>
 
-<select class="custom-select my-2">
-    <option selected>Open this select menu</option>
-    <option value="1">One</option>
-</select>
+    <select class="custom-select my-2" name="destination">
+        {{#each lines}}
+        <optgroup label="line">
+            {{#each this}}
+            {{ this }}
+            <option>{{ this }}</option>
+            {{/each}}
+        </optgroup>
+        {{/each}}
+    </select>
+
+    <button type="submit" class="btn btn-success">Search</button>
+
+</form>
