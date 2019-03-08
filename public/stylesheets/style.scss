@@ -1,0 +1,28 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body{
+  background-color: #252627;
+}
+
+main{
+  background-color:white;
+}
+
+footer{
+  background-color: #3384D6;
+  color: white;
+
+  p{
+    padding: 1%;
+    font-weight: bold;
+  }
+  .red-heart{
+    color: red;
+  }
+}
+
+.custom-select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
