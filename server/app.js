@@ -9,6 +9,7 @@ const Line = require('../models/line');
 
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
+var { update } = require('../controllers/utils/intersections');
 
 const defaultPath = path.join(__dirname, '..');
 var app = express();
@@ -62,5 +63,6 @@ lines.push(line2);
 const line3 = new Line('Aswan', ['3', '1'], lines);
 lines.push(line3);
 
-console.log(line3);
+update(lines);
+console.log((lines[1]));
 module.exports = app;
