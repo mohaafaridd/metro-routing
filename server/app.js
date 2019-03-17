@@ -51,8 +51,16 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-const line1 = new Line('Cairo', ['1', '2']);
-const line2 = new Line('Alexandria', ['1', '2']);
-console.log(line2);
+const lines = [];
 
+const line1 = new Line('Cairo', ['1', '2', '3'], lines);
+lines.push(line1);
+
+const line2 = new Line('Alexandria', ['2', '1'], lines);
+lines.push(line2);
+
+const line3 = new Line('Aswan', ['3', '1'], lines);
+lines.push(line3);
+
+console.log(line3);
 module.exports = app;
