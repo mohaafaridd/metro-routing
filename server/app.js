@@ -5,11 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 const hbs = require('hbs');
-const Line = require('../models/line');
 
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
-var { update } = require('../controllers/utils/intersections');
 
 const defaultPath = path.join(__dirname, '..');
 var app = express();
@@ -52,17 +50,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-const lines = [];
-
-const line1 = new Line('Cairo', ['1', '2', '3'], lines);
-lines.push(line1);
-
-const line2 = new Line('Alexandria', ['2', '1'], lines);
-lines.push(line2);
-
-const line3 = new Line('Aswan', ['3', '1'], lines);
-lines.push(line3);
-
-update(lines);
-console.log((lines[1]));
 module.exports = app;

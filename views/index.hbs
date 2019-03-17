@@ -1,12 +1,11 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p>Find best route!</p>
 
 <form action="/results" method="get" class="p-2">
     <select class="custom-select my-2" name="source">
         {{#each lines}}
-        <optgroup label="line">
-            {{#each this}}
-            {{ this }}
+        <optgroup label="{{name}}">
+            {{#each stops}}
             <option>{{ this }}</option>
             {{/each}}
         </optgroup>
