@@ -14,9 +14,8 @@
 
     <select class="custom-select my-2" name="destination">
         {{#each lines}}
-        <optgroup label="line">
-            {{#each this}}
-            {{ this }}
+        <optgroup label="{{name}}">
+            {{#each stops}}
             <option>{{ this }}</option>
             {{/each}}
         </optgroup>

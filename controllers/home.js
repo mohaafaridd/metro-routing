@@ -1,15 +1,15 @@
 const Line = require('../models/line');
-var { update } = require('../controllers/utils/intersections');
+const { update } = require('../controllers/utils/intersections');
 
 const lines = [];
 
-const line1 = new Line('Cairo', ['Ramses', 'Haram', 'October'], lines);
+const line1 = new Line('Cairo', ['Ramses', 'Haram', 'October']);
 lines.push(line1);
 
-const line2 = new Line('Alexandria', ['Ramses', 'Abo-Qeer'], lines);
+const line2 = new Line('Alexandria', ['Ramses', 'Abo-Qeer']);
 lines.push(line2);
 
-const line3 = new Line('Aswan', ['Edfou', 'Ramses'], lines);
+const line3 = new Line('Aswan', ['Edfou', 'Ramses']);
 lines.push(line3);
 
 update(lines);
