@@ -7,4 +7,36 @@ const add = (name, stops) => {
   update(lines);
 }
 
-module.exports = { lines, add };
+
+const tempLines = [
+  {
+    name: 'Giza',
+    stops: [
+      'a',
+      'b',
+      'c'
+    ]
+  },
+
+  {
+    name: 'Cairo',
+    stops: [
+      'a',
+      'b',
+      'c'
+    ]
+  }
+
+  ,
+
+  {
+    name: 'Alexandria',
+    stops: [
+      'a',
+      'b',
+      'c'
+    ]
+  }
+]
+
+module.exports = { 'lines': tempLines, add };

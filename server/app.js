@@ -7,7 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 const hbs = require('hbs');
 
 var indexRouter = require('../routes/index');
-var controlsRouter = require('../routes/control');
+var adminRouter = require('../routes/admin');
 
 const defaultPath = path.join(__dirname, '..');
 var app = express();
@@ -32,7 +32,7 @@ app.use('/js', express.static(path.join(defaultPath, 'node_modules', 'jquery', '
 hbs.registerHelper('getCurrentYear', () => new Date().getFullYear());
 
 app.use('/', indexRouter);
-app.use('/control', controlsRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
