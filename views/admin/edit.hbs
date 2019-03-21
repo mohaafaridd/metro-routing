@@ -1,5 +1,12 @@
-<form action="/add" method="post">
-    <h3>Add A line</h3>
+<form action="/admin/lines/{{action}}" method="post">
+    <h3>{{type}} A Line</h3>
+
     <label for="line_name">Line Name</label>
-    <input type="text" class="form-control" id="line_name">
+    <input type="text" class="form-control" id="line_name" name="name">
+
+    <label for="stops">Line Name</label>
+    <input type="text" class="form-control" id="stops" name="stops">
+
+    <button type="submit">{{type}}</button>
+
 </form>

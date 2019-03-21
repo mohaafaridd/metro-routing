@@ -2,12 +2,6 @@ const Line = require('../models/line');
 const { update } = require('./utils/intersections');
 const lines = [];
 
-const add = (name, stops) => {
-  lines.push(new Line(name, stops));
-  update(lines);
-}
-
-
 const tempLines = [
   {
     name: 'Giza',
@@ -39,4 +33,9 @@ const tempLines = [
   }
 ]
 
-module.exports = { 'lines': tempLines, add };
+const add = (name, stops) => {
+  lines.push(new Line(name, stops));
+  update(lines);
+}
+
+module.exports = { 'lines': lines, add };

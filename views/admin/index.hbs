@@ -8,6 +8,14 @@
         <button class="btn btn-success mx-1">Edit</button>
         <button class="btn btn-outline-danger">Delete</button>
     </div>
+
+
+    <ul class="list-group">
+        {{#stops}}
+        <li class="list-group-item">{{this}}</li>
+        {{/stops}}
+    </ul>
+
 </div>
 
 {{/each}}
