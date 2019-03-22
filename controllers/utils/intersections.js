@@ -33,7 +33,7 @@ const getIntersectionsOf = (line, lines) => {
     if (match) {
       intersections.push({
         name: target.name,
-        intersections: match
+        intersections: match,
       });
     }
   }

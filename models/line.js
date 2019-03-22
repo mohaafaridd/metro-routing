@@ -9,6 +9,7 @@ class Line {
   constructor(name, stops) {
     this.name = name;
     this.stops = stops;
+    this.intersections = [];
   }
 }
 
