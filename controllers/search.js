@@ -76,7 +76,7 @@ const search = (req, res) => {
   const shortestPath = graph.shortestPath(source, destination);
   console.log(shortestPath);
 
-  res.render('results', { path: shortestPath, message })
+  res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}` })
 
 }
 
