@@ -1,9 +1,52 @@
+const { lines } = require('./lines');
+const Graph = require("graph-data-structure");
+
+const graph = Graph();
+
+const toGraph = (array) => {
+
+  for (let index = 0; index < array.length; index++) {
+    const line = array[index];
+
+    for (let j = 0; j < line.stops.length - 1; j++) {
+      const fromStop = line.stops[j];
+      const toStop = line.stops[j + 1];
+      graph.addEdge(fromStop, toStop);
+    }
+  }
+
+}
+
+/* const getLine = (stop) => {
+
+  const stops = [];
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index];
+
+    if ((line.stops).indexOf(stop) > -1) {
+      stops.push({
+        name: line.name,
+        index
+      });
+    }
+  }
+
+  return stops;
+
+} */
+
 const search = (req, res) => {
 
-  const source = req.body['source'];
-  const destination = req.body['destination'];
+  const source = req.query.source;
+  const destination = req.query.destination;
 
-  res.render('results', {source, destination})
+  toGraph(lines);
+
+  const shortestPath = graph.shortestPath(source, destination);
+  console.log(shortestPath);
+
+  res.render('results', { path: shortestPath })
 
 }
 

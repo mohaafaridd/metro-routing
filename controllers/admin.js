@@ -27,7 +27,7 @@ const add = (req, res, next) => {
 
 const postLine = (req, res) => {
   const name = req.body['name'];
-  const stops = (req.body['stops']).split(" ");
+  const stops = (req.body['stops']).split(" - ");
   lines.add(name, stops);
   res.redirect('/admin');
 }

@@ -1,4 +1,5 @@
 const Line = require('../models/line');
+
 const { update } = require('./utils/intersections');
 const lines = [];
 
