@@ -11,8 +11,12 @@ const toGraph = (array) => {
     for (let j = 0; j < line.stops.length - 1; j++) {
       const fromStop = line.stops[j];
       const toStop = line.stops[j + 1];
+
+      // to enable verse searching
       graph.addEdge(fromStop, toStop);
+      graph.addEdge(toStop, fromStop);
     }
+
   }
 
 }
