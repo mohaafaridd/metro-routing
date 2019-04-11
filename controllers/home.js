@@ -5,7 +5,7 @@ const home = (req, res) => {
 
   update(lines);
 
-  res.render('index', { title: 'Express', lines });
+  res.render('index', { title: 'Metro', lines });
 }
 
 module.exports = {

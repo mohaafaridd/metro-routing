@@ -54,17 +54,22 @@ const search = (req, res) => {
   const inLine = isInLine(source, destination);
 
   if (inLine) {
-    message = 'You will not need to change lines'
+    message = 'لا تحتاج إلي تغيير الخط الحالي'
   }
 
   // Case 2: stops on different lines
   if (!inLine) {
-    message = 'You will need to change lines'
+    message = 'ستحتاج إلي تغيير خطك الحالي'
   }
 
   // Case 3: stops aren't connected by any mean
 
   // Case 4: Source is the destination
+
+  if (source === destination) {
+    message = 'احنا هنهزر'
+    return res.render('error', { message })
+  }
 
   toGraph(lines);
 

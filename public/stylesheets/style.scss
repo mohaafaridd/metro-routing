@@ -1,20 +1,60 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
+
+.droid-arabic-kufi {
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+$dark-blue: #121420;
+$contrast: #FCA311;
+$dark: #413F54;
 
 body{
-  background-color: #252627;
+  background-color: $dark-blue;
+}
+
+nav{
+  background-color: $dark;
+  .nav-item a{
+    text-decoration: none;
+    color: $contrast;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.5s;
+    &:hover {
+      color: darken($color: $contrast, $amount: 10);
+      background: darken($color: $dark, $amount: 10)
+    }
+  }
 }
 
 main{
-  background-color:white;
+  
+  background-color:lighten($color: $dark, $amount: 10);
+  p{
+    font-size: 32px;
+    color: lighten($color: $contrast, $amount: 10);
+  }
+
+  ul{
+    display: flex !important;
+    li{
+      flex-grow: 0 !important;
+    }
+  }
 }
 
 footer{
-  background-color: #3384D6;
-  color: white;
+  background-color: $dark;
+  color: $contrast;
 
   p{
     padding: 1%;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   .red-heart{
     color: red;
