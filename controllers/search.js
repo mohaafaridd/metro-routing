@@ -21,7 +21,7 @@ const toGraph = (array) => {
 
 }
 
-/* const getLine = (stop) => {
+const getLine = (stop) => {
 
   const stops = [];
 
@@ -29,28 +29,49 @@ const toGraph = (array) => {
     const line = lines[index];
 
     if ((line.stops).indexOf(stop) > -1) {
-      stops.push({
-        name: line.name,
-        index
-      });
+      stops.push(line.name);
     }
   }
 
   return stops;
 
-} */
+}
+
+const isInLine = (source, destination) => {
+
+  return getLine(source).some(r => getLine(destination).indexOf(r) >= 0)
+
+}
 
 const search = (req, res) => {
 
   const source = req.query.source;
   const destination = req.query.destination;
 
+  let message;
+
+  // Case 1: stops on the same line
+  const inLine = isInLine(source, destination);
+
+  if (inLine) {
+    message = 'You will not need to change lines'
+  }
+
+  // Case 2: stops on different lines
+  if (!inLine) {
+    message = 'You will need to change lines'
+  }
+
+  // Case 3: stops aren't connected by any mean
+
+  // Case 4: Source is the destination
+
   toGraph(lines);
 
   const shortestPath = graph.shortestPath(source, destination);
   console.log(shortestPath);
 
-  res.render('results', { path: shortestPath })
+  res.render('results', { path: shortestPath, message })
 
 }
 

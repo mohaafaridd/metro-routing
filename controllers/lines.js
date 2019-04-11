@@ -88,4 +88,4 @@ const add = (name, stops) => {
   update(lines);
 }
 
-module.exports = { 'lines': defaultLines, add };
+module.exports = { 'lines': defaultLines, 'addLines': add };
