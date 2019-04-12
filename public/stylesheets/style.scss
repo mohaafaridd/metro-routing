@@ -5,10 +5,10 @@
 .droid-arabic-kufi {
   font-family: 'Droid Arabic Kufi', serif;
 }
-
-$dark-blue: #203b49;
+/* 
+$dark-blue: #03486D;
 $contrast: #fff;
-$dark: darken($color: $dark-blue, $amount: 20);
+$dark: #020122;
 
 body{
   background-color: $dark-blue;
@@ -68,8 +68,9 @@ footer{
     color: red;
   }
 }
+ */
 
-.custom-select{
+ .custom-select{
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -81,3 +82,42 @@ footer{
 
 }
 
+$dark: #424242;
+$contrast: #fff;
+
+nav, footer{
+
+  background-color: $dark;
+  
+  height: 5vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a,p{
+    margin: 0 !important;
+    color: $contrast;
+    text-align: center;
+    span{
+      color: #F44336;
+    }
+  }
+
+}
+
+main{
+  min-height: 90vh;
+}
+
+body{
+  p{
+    color: $contrast;
+  }
+
+  box-sizing: content-box;
+  height: 100vh;
+  background-color: lighten($color: $dark, $amount: 10)
+}
