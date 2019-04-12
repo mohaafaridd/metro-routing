@@ -1,5 +1,8 @@
-const { lines } = require('./lines');
 const Graph = require("graph-data-structure");
+const util = require('util');
+
+const { lines } = require('./lines');
+const { update } = require('./utils/intersections');
 
 const graph = Graph();
 
@@ -21,7 +24,7 @@ const toGraph = (array) => {
 
 }
 
-const getLine = (stop) => {
+const getLineName = (stop) => {
 
   const stops = [];
 
@@ -39,14 +42,100 @@ const getLine = (stop) => {
 
 const isInLine = (source, destination) => {
 
-  return getLine(source).some(r => getLine(destination).indexOf(r) >= 0)
+  return getLineName(source).some(r => getLineName(destination).indexOf(r) >= 0)
 
+}
+
+const addDirectionsTo = (array, source, destination) => {
+  const newPath = [];
+
+  for (let index = 0; index < array.length - 1; index++) {
+    const first = array[index];
+    const second = array[index + 1];
+
+    const lineName = getLineName(first).filter(element => getLineName(second).includes(element))[0];
+    const line = lines.filter((element) => element.name === lineName)[0];
+    const lineIndex = lines.findIndex((e) => e === line);
+
+    const firstIndex = line.stops.findIndex((e) => e === first);
+    const secondIndex = line.stops.findIndex((e) => e === second);
+
+    let direction;
+
+    switch (firstIndex < secondIndex) {
+      case true:
+
+        switch (lineIndex) {
+          case 0:
+            direction = 'المرج'
+            break;
+
+          case 1:
+            direction = 'شبرا'
+            break;
+
+          case 2:
+            direction = 'الاهرام'
+            break;
+        }
+
+        break;
+
+      case false:
+
+        switch (lineIndex) {
+          case 0:
+            direction = 'حلوان'
+            break;
+
+          case 1:
+            direction = 'المنيب'
+            break;
+
+          case 2:
+            direction = 'العباسية'
+            break;
+        }
+        break;
+    }
+
+    const inNewPath = newPath.some((e) => e.direction === direction);
+
+    console.log(inNewPath);
+
+    if (inNewPath) {
+      const directionIndex = newPath.findIndex((e) => e.direction === direction);
+
+      newPath[directionIndex].stops.push(first);
+    } else {
+      newPath.push({
+        direction,
+        stops: [first]
+      })
+    }
+
+    /* 
+    {
+      direction: '',
+      stops: [
+
+      ]
+    }
+    */
+  }
+
+  console.log(newPath);
+
+  return array;
 }
 
 const search = (req, res) => {
 
   const source = req.query.source;
   const destination = req.query.destination;
+
+  toGraph(lines);
+  let shortestPath = graph.shortestPath(source, destination);
 
   let message;
 
@@ -59,7 +148,7 @@ const search = (req, res) => {
 
   // Case 2: stops on different lines
   if (!inLine) {
-    message = 'ستحتاج إلي تغيير خطك الحالي'
+    message = 'ستحتاج إلي تغيير خطك الحالي';
   }
 
   // Case 3: stops aren't connected by any mean
@@ -71,14 +160,13 @@ const search = (req, res) => {
     return res.render('error', { message })
   }
 
-  toGraph(lines);
-
-  const shortestPath = graph.shortestPath(source, destination);
-  console.log(shortestPath);
+  shortestPath = addDirectionsTo(shortestPath, source, destination);
 
   res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}` })
 
 }
+
+
 
 module.exports = {
   search,
