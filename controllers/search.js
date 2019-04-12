@@ -164,7 +164,7 @@ const search = (req, res) => {
 
   shortestPath = addDirectionsTo(shortestPath, source, destination);
 
-  res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}` })
+  res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}`, lines, source, destination })
 
 }
 
