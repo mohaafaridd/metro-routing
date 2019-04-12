@@ -6,13 +6,19 @@
   font-family: 'Droid Arabic Kufi', serif;
 }
 
-$dark-blue: #121420;
-$contrast: #FCA311;
-$dark: #413F54;
+$dark-blue: #203b49;
+$contrast: #fff;
+$dark: darken($color: $dark-blue, $amount: 20);
 
 body{
   background-color: $dark-blue;
 }
+
+body {
+  height: 100%;
+  background-color: $dark-blue;
+}
+
 
 nav{
   background-color: $dark;
@@ -25,7 +31,7 @@ nav{
     transition: all 0.5s;
     &:hover {
       color: darken($color: $contrast, $amount: 10);
-      background: darken($color: $dark, $amount: 10)
+      background: darken($color: $dark, $amount: 10);
     }
   }
 }
@@ -33,6 +39,8 @@ nav{
 main{
   
   background-color:lighten($color: $dark, $amount: 10);
+  min-height: 90vh;
+
   p{
     font-size: 32px;
     color: lighten($color: $contrast, $amount: 10);
@@ -52,9 +60,9 @@ footer{
 
   p{
     padding: 1%;
-    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0;
   }
   .red-heart{
     color: red;

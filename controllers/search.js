@@ -111,7 +111,7 @@ const addDirectionsTo = (array, source, destination) => {
 
       newPath.push({
         direction,
-        stops: [first]
+        stops: [first, second]
       });
     }
   }
