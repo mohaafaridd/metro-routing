@@ -120,8 +120,6 @@ const addDirectionsTo = (array, source, destination) => {
     e.stops = [...new Set(e.stops)];
   })
 
-  console.log(newPath);
-
   return newPath;
 }
 
@@ -129,9 +127,13 @@ const search = (req, res) => {
 
   const source = req.query.source;
   const destination = req.query.destination;
-
+  let shortestPath
   toGraph(lines);
-  let shortestPath = graph.shortestPath(source, destination);
+  try {
+    shortestPath = graph.shortestPath(source, destination);
+  } catch (error) {
+    return res.render('error', { message: 'احنا هنهزر' });
+  }
 
   let message;
 
@@ -148,6 +150,10 @@ const search = (req, res) => {
   }
 
   // Case 3: stops aren't connected by any mean
+
+  if (!getLineName(source)[0] || !getLineName(destination)[0]) {
+    res.render('/');
+  }
 
   // Case 4: Source is the destination
 
