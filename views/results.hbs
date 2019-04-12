@@ -1,8 +1,16 @@
 <p class="droid-arabic-kufi text-center">{{message}}</p>
+
+<button class="btn btn-warning text-center"><i class="fas fa-exchange-alt"></i></button>
+
+{{#each path}}
+
+<p class="text-right">اتجاه {{direction}}</p>
+
 <ul class="list-group">
 
-    {{#each path}}
+    {{#each stops}}
     <li class="list-group-item text-right droid-arabic-kufi">{{this}}</li>
     {{/each}}
 
 </ul>
+{{/each}}

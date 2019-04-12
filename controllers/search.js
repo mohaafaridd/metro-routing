@@ -75,7 +75,7 @@ const addDirectionsTo = (array, source, destination) => {
             break;
 
           case 2:
-            direction = 'الاهرام'
+            direction = 'العباسية'
             break;
         }
 
@@ -93,7 +93,7 @@ const addDirectionsTo = (array, source, destination) => {
             break;
 
           case 2:
-            direction = 'العباسية'
+            direction = 'العتبة'
             break;
         }
         break;
@@ -101,32 +101,28 @@ const addDirectionsTo = (array, source, destination) => {
 
     const inNewPath = newPath.some((e) => e.direction === direction);
 
-    console.log(inNewPath);
-
     if (inNewPath) {
-      const directionIndex = newPath.findIndex((e) => e.direction === direction);
 
-      newPath[directionIndex].stops.push(first);
+      const directionIndex = newPath.findIndex((e) => e.direction === direction);
+      let stops = newPath[directionIndex].stops;
+      stops.push(first, second);
+
     } else {
+
       newPath.push({
         direction,
         stops: [first]
-      })
+      });
     }
-
-    /* 
-    {
-      direction: '',
-      stops: [
-
-      ]
-    }
-    */
   }
+
+  newPath.forEach((e) => {
+    e.stops = [...new Set(e.stops)];
+  })
 
   console.log(newPath);
 
-  return array;
+  return newPath;
 }
 
 const search = (req, res) => {
@@ -165,8 +161,6 @@ const search = (req, res) => {
   res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}` })
 
 }
-
-
 
 module.exports = {
   search,
