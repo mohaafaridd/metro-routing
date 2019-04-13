@@ -6,10 +6,9 @@ const { getProperMessage } = require('./methods/messages');
 const { getProperPrice } = require('./methods/price');
 
 const search = (req, res) => {
+  const { source } = req.query;
 
-  const source = req.query.source;
-
-  const destination = req.query.destination;
+  const { destination } = req.query;
 
   const graph = toGraph(lines);
 
@@ -22,18 +21,18 @@ const search = (req, res) => {
   const finalPath = addDirectionsTo(shortestPath, lines);
 
   res.render('results', {
-    path: finalPath, message,
+    path: finalPath,
+    message,
     title: `اقصر طريق من ${source} الي ${destination}`,
     lines,
     source,
     destination,
     stops: shortestPath.length,
     stopsCount: shortestPath.length > 10 ? 'محطة' : 'محطات',
-    price
+    price,
   });
-
-}
+};
 
 module.exports = {
   search,
-}
+};

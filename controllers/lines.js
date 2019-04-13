@@ -1,4 +1,5 @@
 const Line = require('../models/line');
+
 const lines = [];
 
 const defaultLines = [
@@ -40,7 +41,7 @@ const defaultLines = [
       'عزبة النخيل',
       'المرج',
       'المرج الجديدة',
-    ]
+    ],
   },
 
   {
@@ -66,7 +67,7 @@ const defaultLines = [
       'المظلات',
       'كلية الزراعة',
       'شبرا الخيمة',
-    ]
+    ],
   },
 
   {
@@ -80,13 +81,13 @@ const defaultLines = [
       'ارض المعارض',
       'الاستاد',
       'كلية البنات',
-      'الاهرام'
-    ]
-  }
+      'الاهرام',
+    ],
+  },
 ];
 
 const add = (name, stops) => {
   lines.push(new Line(name, stops));
-}
+};
 
-module.exports = { 'lines': defaultLines, 'addLines': add };
+module.exports = { lines: defaultLines, addLines: add };

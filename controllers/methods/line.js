@@ -1,10 +1,9 @@
 const { lines } = require('../lines');
 
 const getLineName = (stop) => {
-
   const stops = [];
 
-  for (let index = 0; index < lines.length; index++) {
+  for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
 
     if ((line.stops).indexOf(stop) > -1) {
@@ -12,15 +11,13 @@ const getLineName = (stop) => {
     }
   }
   return stops;
-}
+};
 
 const isInLine = (source, destination) => {
-
-  return getLineName(source, lines).some(r => getLineName(destination, lines).indexOf(r) >= 0)
-
-}
+  return getLineName(source, lines).some(r => getLineName(destination, lines).indexOf(r) >= 0);
+};
 
 module.exports = {
   getLineName,
-  isInLine
-}
+  isInLine,
+};

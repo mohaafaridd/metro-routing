@@ -1,15 +1,18 @@
 const getProperPrice = (passedPath) => {
-  const length = passedPath.length;
+  const { length } = passedPath;
 
+  let price;
   if (length <= 9) {
-    return 3;
+    price = 3;
   } else if (length <= 16) {
-    return 5;
+    price = 5;
   } else {
-    return 7;
+    price = 7;
   }
-}
+
+  return price;
+};
 
 module.exports = {
   getProperPrice,
-}
+};

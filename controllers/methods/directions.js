@@ -1,10 +1,9 @@
 const { getLineName } = require('./line');
 
 const getDirection = (lines, line, first, second) => {
-
-  const firstIndex = line.stops.findIndex((e) => e === first);
-  const secondIndex = line.stops.findIndex((e) => e === second);
-  const lineIndex = lines.findIndex((e) => e === line);
+  const firstIndex = line.stops.findIndex(e => e === first);
+  const secondIndex = line.stops.findIndex(e => e === second);
+  const lineIndex = lines.findIndex(e => e === line);
 
   let direction;
 
@@ -13,16 +12,19 @@ const getDirection = (lines, line, first, second) => {
 
       switch (lineIndex) {
         case 0:
-          direction = 'المرج'
+          direction = 'المرج';
           break;
 
         case 1:
-          direction = 'شبرا'
+          direction = 'شبرا';
           break;
 
         case 2:
-          direction = 'العباسية'
+          direction = 'العباسية';
           break;
+
+        default:
+          return null;
       }
 
       break;
@@ -31,22 +33,28 @@ const getDirection = (lines, line, first, second) => {
 
       switch (lineIndex) {
         case 0:
-          direction = 'حلوان'
+          direction = 'حلوان';
           break;
 
         case 1:
-          direction = 'الجيزة'
+          direction = 'الجيزة';
           break;
 
         case 2:
-          direction = 'العتبة'
+          direction = 'العتبة';
           break;
+
+        default:
+          return null;
       }
       break;
+
+    default:
+      return null;
   }
 
   return direction;
-}
+};
 
 const getLine = (lines, first, second) => {
   const firstLineName = getLineName(first, lines);
@@ -54,14 +62,13 @@ const getLine = (lines, first, second) => {
 
   const lineName = firstLineName.filter(element => secondLineName.includes(element))[0];
 
-  return lines.filter((element) => element.name === lineName)[0];
-}
+  return lines.filter(element => element.name === lineName)[0];
+};
 
 const addDirectionsTo = (array, lines) => {
   const newPath = [];
 
-  for (let index = 0; index < array.length - 1; index++) {
-
+  for (let index = 0; index < array.length - 1; index += 1) {
     const first = array[index];
 
     const second = array[index + 1];
@@ -70,30 +77,27 @@ const addDirectionsTo = (array, lines) => {
 
     const direction = getDirection(lines, line, first, second);
 
-    const inNewPath = newPath.some((e) => e.direction === direction);
+    const inNewPath = newPath.some(e => e.direction === direction);
 
     if (inNewPath) {
-
-      const directionIndex = newPath.findIndex((e) => e.direction === direction);
-      let stops = newPath[directionIndex].stops;
+      const directionIndex = newPath.findIndex(e => e.direction === direction);
+      const { stops } = newPath[directionIndex];
       stops.push(first, second);
-
     } else {
-
       newPath.push({
         direction,
-        stops: [first, second]
+        stops: [first, second],
       });
     }
   }
 
   newPath.forEach((e) => {
     e.stops = [...new Set(e.stops)];
-  })
+  });
 
   return newPath;
 };
 
 module.exports = {
   addDirectionsTo,
-}
+};

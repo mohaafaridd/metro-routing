@@ -1,5 +1,4 @@
 const getShortestPath = (graph, source, destination, res) => {
-
   // Getting the shortest Path
   let shortestPath;
 
@@ -10,8 +9,8 @@ const getShortestPath = (graph, source, destination, res) => {
   }
 
   return shortestPath;
-}
+};
 
 module.exports = {
   getShortestPath,
-}
+};

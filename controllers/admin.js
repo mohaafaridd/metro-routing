@@ -1,9 +1,9 @@
 const { lines, addLines } = require('./lines');
 
-const index = (req, res, next) => {
+const index = (req, res) => {
   res.render('admin/index', {
     title: 'Admin Panel',
-    lines
+    lines,
   });
 }
 
