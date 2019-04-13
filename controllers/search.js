@@ -2,28 +2,10 @@ const Graph = require("graph-data-structure");
 
 const { lines } = require('./lines');
 const { toGraph } = require('./methods/graph');
+const { addDirectionsTo } = require('./methods/directions');
+const { getLineName, isInLine } = require('./methods/line');
 
-/* const graph = Graph();
-
-const toGraph = (array) => {
-
-  for (let index = 0; index < array.length; index++) {
-    const line = array[index];
-
-    for (let j = 0; j < line.stops.length - 1; j++) {
-      const fromStop = line.stops[j];
-      const toStop = line.stops[j + 1];
-
-      // to enable verse searching
-      graph.addEdge(fromStop, toStop);
-      graph.addEdge(toStop, fromStop);
-    }
-
-  }
-
-} */
-
-const getLineName = (stop) => {
+/* const getLineName = (stop) => {
 
   const stops = [];
 
@@ -37,15 +19,15 @@ const getLineName = (stop) => {
 
   return stops;
 
-}
+} */
 
-const isInLine = (source, destination) => {
+/* const isInLine = (source, destination) => {
 
   return getLineName(source).some(r => getLineName(destination).indexOf(r) >= 0)
 
-}
+} */
 
-const addDirectionsTo = (array, source, destination) => {
+/* const addDirectionsTo = (array, source, destination) => {
   const newPath = [];
 
   for (let index = 0; index < array.length - 1; index++) {
@@ -121,7 +103,7 @@ const addDirectionsTo = (array, source, destination) => {
 
   return newPath;
 }
-
+ */
 const search = (req, res) => {
 
   const source = req.query.source;
@@ -163,7 +145,7 @@ const search = (req, res) => {
     return res.render('error', { message })
   }
 
-  shortestPath = addDirectionsTo(shortestPath, source, destination);
+  shortestPath = addDirectionsTo(shortestPath, lines);
 
   res.render('results', { path: shortestPath, message, title: `اقصر طريق من ${source} الي ${destination}`, lines, source, destination })
 
