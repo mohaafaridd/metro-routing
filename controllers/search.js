@@ -1,8 +1,6 @@
 const Graph = require("graph-data-structure");
-const util = require('util');
 
 const { lines } = require('./lines');
-const { update } = require('./utils/intersections');
 
 const graph = Graph();
 
