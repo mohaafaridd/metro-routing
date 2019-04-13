@@ -28,6 +28,7 @@ const search = (req, res) => {
     source,
     destination,
     stops: shortestPath.length,
+    stopsCount: shortestPath.length > 10 ? 'محطة' : 'محطات',
     price
   });
 
