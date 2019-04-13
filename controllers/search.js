@@ -1,8 +1,9 @@
 const Graph = require("graph-data-structure");
 
 const { lines } = require('./lines');
+const { toGraph } = require('./methods/graph');
 
-const graph = Graph();
+/* const graph = Graph();
 
 const toGraph = (array) => {
 
@@ -20,7 +21,7 @@ const toGraph = (array) => {
 
   }
 
-}
+} */
 
 const getLineName = (stop) => {
 
@@ -125,8 +126,10 @@ const search = (req, res) => {
 
   const source = req.query.source;
   const destination = req.query.destination;
-  let shortestPath
-  toGraph(lines);
+  const graph = toGraph(lines);
+  let shortestPath;
+
+
   try {
     shortestPath = graph.shortestPath(source, destination);
   } catch (error) {
