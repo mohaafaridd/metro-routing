@@ -1,5 +1,3 @@
-const Graph = require('graph-data-structure');
-
 const getShortestPath = (graph, source, destination, res) => {
 
   // Getting the shortest Path
