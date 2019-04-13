@@ -5,72 +5,8 @@
 .droid-arabic-kufi {
   font-family: 'Droid Arabic Kufi', serif;
 }
-/* 
-$dark-blue: #03486D;
-$contrast: #fff;
-$dark: #020122;
 
-body{
-  background-color: $dark-blue;
-}
-
-body {
-  height: 100%;
-  background-color: $dark-blue;
-}
-
-
-nav{
-  background-color: $dark;
-  .nav-item a{
-    text-decoration: none;
-    color: $contrast;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: all 0.5s;
-    &:hover {
-      color: darken($color: $contrast, $amount: 10);
-      background: darken($color: $dark, $amount: 10);
-    }
-  }
-}
-
-main{
-  
-  background-color:lighten($color: $dark, $amount: 10);
-  min-height: 90vh;
-
-  p{
-    font-size: 32px;
-    color: lighten($color: $contrast, $amount: 10);
-  }
-
-  ul{
-    display: flex !important;
-    li{
-      flex-grow: 0 !important;
-    }
-  }
-}
-
-footer{
-  background-color: $dark;
-  color: $contrast;
-
-  p{
-    padding: 1%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
-  }
-  .red-heart{
-    color: red;
-  }
-}
- */
-
- .custom-select{
+.custom-select{
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -115,6 +51,12 @@ main{
 body{
   p{
     color: $contrast;
+  }
+
+  .alert-text{
+    color: inherit;
+    text-align: right;
+    margin: 0;
   }
 
   box-sizing: content-box;

@@ -30,6 +30,12 @@
     <button id="switch" class="btn btn-primary text-center"><i class="fas fa-exchange-alt"></i></button>
 </form>
 
+<div class="alert alert-success mt-2" role="alert">
+    <p class="alert-text droid-arabic-kufi">
+        ستتوقف في {{stops}} محطات لذا عليك شراء تذكرة فئة الـ{{price}} جنيهات
+    </p>
+</div>
+
 {{#each path}}
 <div class="py-2">
     <ul class="list-group">
