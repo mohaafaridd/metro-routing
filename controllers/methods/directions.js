@@ -83,13 +83,19 @@ const addDirectionsTo = (array, lines) => {
       const directionIndex = newPath.findIndex(e => e.direction === direction);
       const { stops } = newPath[directionIndex];
       stops.push(first, second);
-    } else {
+    } else if (newPath.length === 0) {
       newPath.push({
         direction,
         stops: [first, second],
       });
+    } else {
+      newPath.push({
+        direction,
+        stops: [second],
+      });
     }
   }
+
 
   newPath.forEach((e) => {
     e.stops = [...new Set(e.stops)];

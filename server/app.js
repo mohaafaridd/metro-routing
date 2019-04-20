@@ -1,16 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
 const hbs = require('hbs');
 
-var indexRouter = require('../routes/index');
-var adminRouter = require('../routes/admin');
+const indexRouter = require('../routes/index');
+const adminRouter = require('../routes/admin');
 
 const defaultPath = path.join(__dirname, '..');
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(defaultPath, 'views'));
@@ -24,7 +24,7 @@ app.use(sassMiddleware({
   src: path.join(defaultPath, 'public'),
   dest: path.join(defaultPath, 'public'),
   indentedSyntax: false, // true = .sass and false = .scss
-  sourceMap: true
+  sourceMap: true,
 }));
 
 app.use(express.static(path.join(defaultPath, 'public')));
