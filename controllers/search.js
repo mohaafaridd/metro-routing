@@ -1,14 +1,12 @@
 const { lines } = require('./lines');
 const { toGraph } = require('./methods/graph');
-const { addDirectionsTo } = require('./methods/directions');
+const { getNewPath } = require('./methods/directions');
 const { getShortestPath } = require('./methods/shortPath');
 const { getProperMessage } = require('./methods/messages');
 const { getProperPrice } = require('./methods/price');
 
 const search = (req, res) => {
-  const { source } = req.query;
-
-  const { destination } = req.query;
+  const { source, destination } = req.query;
 
   const graph = toGraph(lines);
 
@@ -18,7 +16,7 @@ const search = (req, res) => {
 
   const message = getProperMessage(source, destination, res);
 
-  const finalPath = addDirectionsTo(shortestPath, lines);
+  const finalPath = getNewPath(shortestPath, lines);
 
   res.render('results', {
     path: finalPath,

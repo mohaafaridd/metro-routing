@@ -1,5 +1,13 @@
 const { getLineName } = require('./line');
 
+/* [
+  {
+    direction: string;
+    stops: [string];
+  }
+]
+*/
+
 const getDirection = (lines, line, first, second) => {
   const firstIndex = line.stops.findIndex(e => e === first);
   const secondIndex = line.stops.findIndex(e => e === second);
@@ -65,45 +73,41 @@ const getLine = (lines, first, second) => {
   return lines.filter(element => element.name === lineName)[0];
 };
 
-const addDirectionsTo = (array, lines) => {
-  const newPath = [];
+const getNewPath = (path, lines) => {
+  const newPath = [
+    { direction: 'placeholder' },
+  ];
 
-  for (let index = 0; index < array.length - 1; index += 1) {
-    const first = array[index];
+  for (let index = 0; index < path.length - 1; index += 1) {
+    const first = path[index];
 
-    const second = array[index + 1];
+    const second = path[index + 1];
 
     const line = getLine(lines, first, second);
 
     const direction = getDirection(lines, line, first, second);
 
-    const inNewPath = newPath.some(e => e.direction === direction);
+    const lastDirection = newPath[newPath.length - 1].direction === direction;
 
-    if (inNewPath) {
-      const directionIndex = newPath.findIndex(e => e.direction === direction);
+    if (lastDirection) {
+      const directionIndex = newPath.length - 1;
       const { stops } = newPath[directionIndex];
       stops.push(first, second);
-    } else if (newPath.length === 0) {
+    } else {
       newPath.push({
         direction,
         stops: [first, second],
       });
-    } else {
-      newPath.push({
-        direction,
-        stops: [second],
-      });
     }
   }
-
 
   newPath.forEach((e) => {
     e.stops = [...new Set(e.stops)];
   });
 
-  return newPath;
+  return newPath.slice(1);
 };
 
 module.exports = {
-  addDirectionsTo,
+  getNewPath,
 };
