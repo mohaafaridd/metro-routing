@@ -1,8 +1,11 @@
 const express = require('express');
+const indexRoutes = require('./server/routes');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use('/api', indexRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
