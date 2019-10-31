@@ -1,5 +1,5 @@
-const stop = require('./createStop');
-const lineOne = [
+const { stop } = require('./helper');
+const line = [
   stop(
     {
       english: 'El-Marg Al-Gadeda',
@@ -247,4 +247,4 @@ const lineOne = [
   ),
 ];
 
-module.exports = lineOne;
+module.exports = line;

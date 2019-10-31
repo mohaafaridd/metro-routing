@@ -5,4 +5,4 @@ const stop = (name = { english: '', arabic: '' }, lines = []) => {
   };
 };
 
-module.exports = stop;
+module.exports = { stop };
