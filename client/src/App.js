@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import LineState from './context/line/LineState';
 import Search from './components/Search';
 function App() {
   return (
-    <div className='App' dir='rtl'>
-      <h1>دليل مترو القاهرة الكبري</h1>
-      <div className='container'>
-        <div className='tile'>
-          <Search />
-        </div>
-      </div>
-    </div>
+    <LineState>
+      <Fragment>
+        <Search />
+      </Fragment>
+    </LineState>
   );
 }
 
