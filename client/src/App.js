@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import LineState from './context/line/LineState';
-import Search from './components/Search';
+import Search from './components/header/Search';
 function App() {
   return (
     <LineState>
@@ -11,6 +11,8 @@ function App() {
           </h1>
           <Search />
         </header>
+
+        <main></main>
       </Fragment>
     </LineState>
   );

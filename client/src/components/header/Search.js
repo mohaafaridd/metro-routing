@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import LineContext from '../context/line/lineContext';
+import LineContext from '../../context/line/lineContext';
 import Dropdown from './Dropdown';
 import Button from './Button';
 const Search = () => {
@@ -18,7 +18,8 @@ const Search = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(e.target);
+    console.log('source', source);
+    console.log('destination', destination);
   };
 
   return (
