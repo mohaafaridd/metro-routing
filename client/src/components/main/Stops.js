@@ -1,18 +1,23 @@
 import React, { useEffect, useContext, Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
+import Loader from 'react-loader-spinner';
+
 import StopItem from './StopItem';
 import LineContext from '../../context/line/lineContext';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const Stops = ({ match, location }) => {
   let history = useHistory();
   const {
     getPath,
     path,
+    loading,
     source,
     destination,
     setSource,
     setDestination,
+    setLoading,
   } = useContext(LineContext);
 
   const [count, setCount] = useState(0);
@@ -37,6 +42,25 @@ const Stops = ({ match, location }) => {
     const i = Object.keys(path).reduce((a, index) => a + path[index].length, 0);
     setCount(i);
   }, [path]);
+
+  if (loading) {
+    console.log('loading');
+    return (
+      <ul className='container mx-auto'>
+        <StopItem
+          stop='جاري البحث عن أقصر طريق ممكن...'
+          color='blue'
+          intensity='600'
+          font='white'
+          hover={false}
+          icon='loading'
+        />
+        <li className='bg-gray-100 rounded my-2 p-20 text-center flex justify-center'>
+          <Loader type='Triangle' color='#00BFFF' height={100} width={100} />
+        </li>
+      </ul>
+    );
+  }
 
   if (Object.keys(path).length === 0) {
     return (

@@ -3,15 +3,26 @@ import axios from 'axios';
 
 import lineContext from './lineContext';
 import lineReducer from './lineReducer';
-import { GET_LINES, SET_PATH, SET_SOURCE, SET_DESTINATION } from '../types';
+import {
+  GET_LINES,
+  SET_PATH,
+  SET_SOURCE,
+  SET_DESTINATION,
+  SET_LOADING,
+} from '../types';
 const LineState = props => {
   const initialState = {
     lines: [],
     source: null,
     destination: null,
     path: [],
+    loading: false,
   };
   const [state, dispatch] = useReducer(lineReducer, initialState);
+
+  const setLoading = () => {
+    dispatch({ type: SET_LOADING });
+  };
 
   const getLines = async () => {
     try {
@@ -44,10 +55,12 @@ const LineState = props => {
         source: state.source,
         destination: state.destination,
         path: state.path,
+        loading: state.loading,
         getLines,
         getPath,
         setSource,
         setDestination,
+        setLoading,
       }}
     >
       {props.children}
