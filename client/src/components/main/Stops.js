@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, Fragment } from 'react';
 import queryString from 'query-string';
 import StopItem from './StopItem';
 import LineContext from '../../context/line/lineContext';
@@ -23,16 +23,35 @@ const Stops = ({ match, location }) => {
     }
   }, [source, destination]);
 
-  if (path.length === 0) {
+  if (Object.keys(path).length === 0) {
     return <h4>loading</h4>;
   }
 
   return (
     <div>
       <ul className='container mx-auto'>
-        {path.map(stop => (
-          <StopItem stop={stop} />
-        ))}
+        {Object.keys(path).map(line => {
+          return (
+            <Fragment>
+              <StopItem
+                stop={line}
+                color='blue'
+                intensity='600'
+                font='white'
+                hover={false}
+              />
+              {path[line].map(stop => (
+                <StopItem
+                  stop={stop.name.arabic}
+                  color='gray'
+                  intensity='200'
+                  front='black'
+                  hover={true}
+                />
+              ))}
+            </Fragment>
+          );
+        })}
       </ul>
     </div>
   );

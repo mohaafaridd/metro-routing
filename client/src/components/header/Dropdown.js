@@ -4,11 +4,14 @@ const Dropdown = props => {
   const { lines, id, defaultMessage, onChange, value } = props;
 
   return (
-    <div className='flex my-6'>
-      <label className='w-1/6 self-center text-white' htmlFor={id}>
+    <div className='flex flex-wrap my-6'>
+      <label
+        className='self-center text-white w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6'
+        htmlFor={id}
+      >
         {defaultMessage}
       </label>
-      <div className='inline-block relative w-5/6'>
+      <div className='inline-block relative w-full sm:w-1/2 md:w-2/3 lg:w-3/4 xl:w-5/6'>
         <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
           <svg
             className='fill-current h-4 w-4'
