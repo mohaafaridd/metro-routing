@@ -16,6 +16,9 @@
     "graph-data-structure": "^1.9.0",
     "lodash": "^4.17.15"
   },
+  "engines": {
+    "node": "12.13.0"
+  },
   "devDependencies": {
     "concurrently": "^5.0.0"
   }

@@ -1,0 +1,10 @@
+* {
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
