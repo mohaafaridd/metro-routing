@@ -3,12 +3,13 @@ import axios from 'axios';
 
 import lineContext from './lineContext';
 import lineReducer from './lineReducer';
-import { GET_LINES } from '../types';
+import { GET_LINES, SET_PATH } from '../types';
 const LineState = props => {
   const initialState = {
     lines: [],
     source: null,
     destination: null,
+    path: [],
   };
   const [state, dispatch] = useReducer(lineReducer, initialState);
 
@@ -19,13 +20,24 @@ const LineState = props => {
     } catch (error) {}
   };
 
+  const getPath = async (source, destination) => {
+    try {
+      const response = await axios.get(
+        `/api/direction?source=${source}&destination=${destination}`
+      );
+      dispatch({ type: SET_PATH, payload: response.data });
+    } catch (error) {}
+  };
+
   return (
     <lineContext.Provider
       value={{
         lines: state.lines,
         source: state.source,
         destination: state.destination,
+        path: state.path,
         getLines,
+        getPath,
       }}
     >
       {props.children}

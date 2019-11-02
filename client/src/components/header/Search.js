@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 import Button from './Button';
 const Search = () => {
   const lineContext = useContext(LineContext);
-  const { lines, getLines } = lineContext;
+  const { lines, getLines, getPath } = lineContext;
   const [source, setSource] = useState(null);
   const [destination, setDestination] = useState(null);
 
@@ -18,8 +18,9 @@ const Search = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('source', source);
-    console.log('destination', destination);
+    if (source && destination) {
+      getPath(source, destination);
+    }
   };
 
   return (
