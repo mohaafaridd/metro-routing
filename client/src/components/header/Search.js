@@ -4,7 +4,15 @@ import Dropdown from './Dropdown';
 import Button from './Button';
 const Search = () => {
   const lineContext = useContext(LineContext);
-  const { lines, getLines, getPath, setSource, setDestination } = lineContext;
+  const {
+    lines,
+    getLines,
+    getPath,
+    setSource,
+    setDestination,
+    source,
+    destination,
+  } = lineContext;
 
   useEffect(() => {
     getLines();
@@ -21,12 +29,14 @@ const Search = () => {
         id='source'
         defaultMessage='إختر نقطة البداية'
         onChange={setSource}
+        value={source}
       />
       <Dropdown
         lines={lines}
         id='destination'
         defaultMessage='إختر نقطة النهاية'
         onChange={setDestination}
+        value={destination}
       />
 
       <Button />

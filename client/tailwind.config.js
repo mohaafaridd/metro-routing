@@ -1,3 +1,4 @@
+console.log('here');
 module.exports = {
   prefix: '',
   important: false,
@@ -183,10 +184,14 @@ module.exports = {
       '8': '8px',
     },
     boxShadow: {
-      default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-      md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-      lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      default:
+        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      md:
+        '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      lg:
+        '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      xl:
+        '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
@@ -234,13 +239,7 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: [
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif',
-      ],
+      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
         'Menlo',
         'Monaco',
@@ -417,6 +416,54 @@ module.exports = {
       '40': '40',
       '50': '50',
     },
+    transitionProperty: {
+      // defaults to these values
+      none: 'none',
+      all: 'all',
+      color: 'color',
+      bg: 'background-color',
+      border: 'border-color',
+      colors: ['color', 'background-color', 'border-color'],
+      opacity: 'opacity',
+      transform: 'transform',
+    },
+    transitionDuration: {
+      // defaults to these values
+      default: '250ms',
+      '0': '0ms',
+      '100': '100ms',
+      '250': '250ms',
+      '500': '500ms',
+      '750': '750ms',
+      '1000': '1000ms',
+    },
+    transitionTimingFunction: {
+      // defaults to these values
+      default: 'ease',
+      linear: 'linear',
+      ease: 'ease',
+      'ease-in': 'ease-in',
+      'ease-out': 'ease-out',
+      'ease-in-out': 'ease-in-out',
+    },
+    transitionDelay: {
+      // defaults to these values
+      default: '0ms',
+      '0': '0ms',
+      '100': '100ms',
+      '250': '250ms',
+      '500': '500ms',
+      '750': '750ms',
+      '1000': '1000ms',
+    },
+    willChange: {
+      // defaults to these values
+      auto: 'auto',
+      scroll: 'scroll-position',
+      contents: 'contents',
+      opacity: 'opacity',
+      transform: 'transform',
+    },
   },
   variants: {
     accessibility: ['responsive', 'focus'],
@@ -485,7 +532,12 @@ module.exports = {
     width: ['responsive'],
     wordBreak: ['responsive'],
     zIndex: ['responsive'],
+    transitionProperty: ['responsive'],
+    transitionDuration: ['responsive'],
+    transitionTimingFunction: ['responsive'],
+    transitionDelay: ['responsive'],
+    willChange: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
-}
+  plugins: [require('tailwindcss-transitions')()],
+};

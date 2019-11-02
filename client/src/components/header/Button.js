@@ -6,8 +6,8 @@ const Button = () => {
   const { source, destination, getPath } = useContext(LineContext);
 
   const onClick = e => {
-    if (source && destination) {
-      getPath(source, destination);
+    if (!source || !destination) {
+      e.preventDefault();
     }
   };
 

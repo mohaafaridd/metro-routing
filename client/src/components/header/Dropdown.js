@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 const Dropdown = props => {
-  const { lines, id, defaultMessage, onChange } = props;
+  const { lines, id, defaultMessage, onChange, value } = props;
 
   return (
     <div className='flex my-6'>
@@ -22,7 +22,8 @@ const Dropdown = props => {
           id={id}
           name={id}
           onChange={e => onChange(e.target.value)}
-          defaultValue='default'
+          // defaultValue='default'
+          value={value ? value : 'default'}
           className='block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
         >
           <option disabled value='default'>

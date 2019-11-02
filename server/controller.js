@@ -5,7 +5,12 @@ const lineThree = require('./lines/lineThree');
 const getDirection = (req, res) => {
   const { source, destination } = req.query;
 
-  const path = req.graph.shortestPath(source, destination);
+  const lines = [...lineOne, ...lineTwo, ...lineThree];
+  const path = req.graph
+    .shortestPath(source, destination)
+    .map(
+      stop => lines.find(lineStop => lineStop.name.english === stop).name.arabic
+    );
 
   res.json({ success: true, message: 'Path found', path });
 };
