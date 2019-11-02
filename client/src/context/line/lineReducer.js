@@ -1,4 +1,4 @@
-import { GET_LINES, SET_PATH } from '../types';
+import { GET_LINES, SET_PATH, SET_SOURCE, SET_DESTINATION } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -11,6 +11,17 @@ export default (state, action) => {
       return {
         ...state,
         path: action.payload.path,
+      };
+
+    case SET_SOURCE:
+      return {
+        ...state,
+        source: action.payload,
+      };
+    case SET_DESTINATION:
+      return {
+        ...state,
+        destination: action.payload,
       };
 
     default:

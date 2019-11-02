@@ -4,9 +4,7 @@ import Dropdown from './Dropdown';
 import Button from './Button';
 const Search = () => {
   const lineContext = useContext(LineContext);
-  const { lines, getLines, getPath } = lineContext;
-  const [source, setSource] = useState(null);
-  const [destination, setDestination] = useState(null);
+  const { lines, getLines, getPath, setSource, setDestination } = lineContext;
 
   useEffect(() => {
     getLines();
@@ -16,15 +14,8 @@ const Search = () => {
     return <h4>Loading</h4>;
   }
 
-  const onSubmit = e => {
-    e.preventDefault();
-    if (source && destination) {
-      getPath(source, destination);
-    }
-  };
-
   return (
-    <form onSubmit={onSubmit}>
+    <div>
       <Dropdown
         lines={lines}
         id='source'
@@ -37,8 +28,9 @@ const Search = () => {
         defaultMessage='إختر نقطة النهاية'
         onChange={setDestination}
       />
+
       <Button />
-    </form>
+    </div>
   );
 };
 

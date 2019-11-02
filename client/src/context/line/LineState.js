@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import lineContext from './lineContext';
 import lineReducer from './lineReducer';
-import { GET_LINES, SET_PATH } from '../types';
+import { GET_LINES, SET_PATH, SET_SOURCE, SET_DESTINATION } from '../types';
 const LineState = props => {
   const initialState = {
     lines: [],
@@ -29,6 +29,14 @@ const LineState = props => {
     } catch (error) {}
   };
 
+  const setSource = source => {
+    dispatch({ type: SET_SOURCE, payload: source });
+  };
+
+  const setDestination = destination => {
+    dispatch({ type: SET_DESTINATION, payload: destination });
+  };
+
   return (
     <lineContext.Provider
       value={{
@@ -38,6 +46,8 @@ const LineState = props => {
         path: state.path,
         getLines,
         getPath,
+        setSource,
+        setDestination,
       }}
     >
       {props.children}
