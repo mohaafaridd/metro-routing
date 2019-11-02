@@ -7,6 +7,8 @@ import { GET_LINES } from '../types';
 const LineState = props => {
   const initialState = {
     lines: [],
+    source: null,
+    destination: null,
   };
   const [state, dispatch] = useReducer(lineReducer, initialState);
 
@@ -18,7 +20,14 @@ const LineState = props => {
   };
 
   return (
-    <lineContext.Provider value={{ lines: state.lines, getLines }}>
+    <lineContext.Provider
+      value={{
+        lines: state.lines,
+        source: state.source,
+        destination: state.destination,
+        getLines,
+      }}
+    >
       {props.children}
     </lineContext.Provider>
   );

@@ -5,7 +5,12 @@ function App() {
   return (
     <LineState>
       <Fragment>
-        <Search />
+        <header className='container mx-auto my-3 bg-gray-500 p-6 shadow-md rounded'>
+          <h1 className='text-2xl font-bold text-center text-white'>
+            دليل مترو انفاق القاهرة الكبري
+          </h1>
+          <Search />
+        </header>
       </Fragment>
     </LineState>
   );
