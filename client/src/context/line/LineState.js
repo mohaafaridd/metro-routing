@@ -36,7 +36,10 @@ const LineState = props => {
       const response = await axios.get(
         `/api/direction?source=${source}&destination=${destination}`
       );
-      dispatch({ type: SET_PATH, payload: response.data });
+
+      setTimeout(() => {
+        dispatch({ type: SET_PATH, payload: response.data });
+      }, 2000);
     } catch (error) {}
   };
 
