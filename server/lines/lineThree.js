@@ -107,7 +107,7 @@ const line = [
   ),
   stop(
     {
-      english: 'Heliopolis ',
+      english: 'Heliopolis',
       arabic: 'هليوبوليس',
     },
     'الخط الثالث'
