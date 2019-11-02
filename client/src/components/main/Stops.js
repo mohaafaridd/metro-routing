@@ -39,7 +39,18 @@ const Stops = ({ match, location }) => {
   }, [path]);
 
   if (Object.keys(path).length === 0) {
-    return <h4>loading</h4>;
+    return (
+      <ul className='container mx-auto'>
+        <StopItem
+          stop='تعذر إيجاد طريق مناسب لك'
+          color='red'
+          intensity='600'
+          font='white'
+          hover={false}
+          icon='warning'
+        />
+      </ul>
+    );
   }
 
   const getStationNoun = count => {
