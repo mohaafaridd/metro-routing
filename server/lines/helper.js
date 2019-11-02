@@ -1,7 +1,7 @@
-const stop = (name = { english: '', arabic: '' }, lines = []) => {
+const stop = (name = { english: '', arabic: '' }, line = '') => {
   return {
     name,
-    lines,
+    line,
   };
 };
 

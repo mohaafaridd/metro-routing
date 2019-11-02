@@ -17,10 +17,11 @@ const getDirection = (req, res) => {
 
 const getLines = (req, res) => {
   try {
-    const lines = [...lineOne, ...lineTwo, ...lineThree].map(stop => ({
-      arabic: stop.name.arabic,
-      english: stop.name.english,
-    }));
+    const lines = [lineOne, lineTwo, lineThree];
+    // .map(stop => ({
+    //   arabic: stop.name.arabic,
+    //   english: stop.name.english,
+    // }));
     res.json({ lines });
   } catch (error) {
     res.json({ error });

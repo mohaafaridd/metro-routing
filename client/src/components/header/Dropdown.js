@@ -29,10 +29,14 @@ const Dropdown = props => {
           <option disabled value='default'>
             {defaultMessage}
           </option>
-          {lines.map((stop, i) => (
-            <option key={i} value={stop.english}>
-              {stop.arabic}
-            </option>
+          {lines.map((line, i) => (
+            <optgroup key={i} label={line[0].line}>
+              {line.map((stop, j) => (
+                <option key={j} value={stop.name.english}>
+                  {stop.name.arabic}
+                </option>
+              ))}
+            </optgroup>
           ))}
         </select>
       </div>

@@ -5,140 +5,140 @@ const line = [
       english: 'Shoubra El-Khema',
       arabic: 'شبرا الخيمة',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Kolyat El-Zereaa',
       arabic: 'كلية الزراعة',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'El-Mazzalat',
       arabic: 'المظلات',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'El-Khalafawy',
       arabic: 'الخلفاوي',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'St Teresa',
       arabic: 'سانت تريز',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Rawd El-Farag',
       arabic: 'روض الفرج',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Msrra',
       arabic: 'مسرة',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Al-Shohadaa',
       arabic: 'الشهداء',
     },
-    [1, 2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'El-Attba',
       arabic: 'العتبة',
     },
-    [2, 3]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Mohammed Naguib',
       arabic: 'محمد نجيب',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Sadat',
       arabic: 'سادات',
     },
-    [1, 2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Opera',
       arabic: 'الاوبرا',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Dokki',
       arabic: 'الدقي',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Al-Bohoth',
       arabic: 'البحوث',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Cairo University',
       arabic: 'جامعة القاهرة',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Faisal',
       arabic: 'فيصل',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Giza',
       arabic: 'الجيزة',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Om El-Masreen',
       arabic: 'ام المصريين',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'Saqyaat Mekky',
       arabic: 'ساقية مكي',
     },
-    [2]
+    'الخط الثاني'
   ),
   stop(
     {
       english: 'El-Monib',
       arabic: 'المنيب',
     },
-    [2]
+    'الخط الثاني'
   ),
 ];
 
