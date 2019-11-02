@@ -9,6 +9,7 @@ import {
   SET_SOURCE,
   SET_DESTINATION,
   SET_LOADING,
+  SET_ERROR,
 } from '../types';
 const LineState = props => {
   const initialState = {
@@ -17,6 +18,7 @@ const LineState = props => {
     destination: null,
     path: [],
     loading: false,
+    error: null,
   };
   const [state, dispatch] = useReducer(lineReducer, initialState);
 
@@ -40,7 +42,9 @@ const LineState = props => {
       setTimeout(() => {
         dispatch({ type: SET_PATH, payload: response.data });
       }, 2000);
-    } catch (error) {}
+    } catch (error) {
+      dispatch({ type: SET_ERROR, payload: error.response.data });
+    }
   };
 
   const setSource = source => {
@@ -59,6 +63,7 @@ const LineState = props => {
         destination: state.destination,
         path: state.path,
         loading: state.loading,
+        error: state.error,
         getLines,
         getPath,
         setSource,

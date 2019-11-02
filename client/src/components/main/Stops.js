@@ -2,6 +2,7 @@ import React, { useEffect, useContext, Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import Loader from 'react-loader-spinner';
+import uuid from 'uuid/v4';
 
 import StopItem from './StopItem';
 import LineContext from '../../context/line/lineContext';
@@ -13,11 +14,11 @@ const Stops = ({ match, location }) => {
     getPath,
     path,
     loading,
+    error,
     source,
     destination,
     setSource,
     setDestination,
-    setLoading,
   } = useContext(LineContext);
 
   const [count, setCount] = useState(0);
@@ -44,7 +45,6 @@ const Stops = ({ match, location }) => {
   }, [path]);
 
   if (loading) {
-    console.log('loading');
     return (
       <ul className='container mx-auto'>
         <StopItem
@@ -136,9 +136,9 @@ const Stops = ({ match, location }) => {
           hover={false}
         />
 
-        {Object.keys(path).map(line => {
+        {Object.keys(path).map((line, i) => {
           return (
-            <Fragment>
+            <Fragment key={uuid()}>
               <StopItem
                 stop={line}
                 color='blue'
@@ -148,6 +148,7 @@ const Stops = ({ match, location }) => {
               />
               {path[line].map(stop => (
                 <StopItem
+                  key={uuid()}
                   stop={stop.name.arabic}
                   color='gray'
                   intensity='200'

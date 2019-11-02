@@ -4,6 +4,7 @@ import {
   SET_SOURCE,
   SET_DESTINATION,
   SET_LOADING,
+  SET_ERROR,
 } from '../types';
 
 export default (state, action) => {
@@ -37,6 +38,13 @@ export default (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        loading: false,
+        path: [],
+        error: action.payload.error,
       };
 
     default:
