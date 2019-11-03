@@ -26,13 +26,9 @@ const getDirection = (req, res) => {
 const getLines = (req, res) => {
   try {
     const lines = [lineOne, lineTwo, lineThree];
-    // .map(stop => ({
-    //   arabic: stop.name.arabic,
-    //   english: stop.name.english,
-    // }));
-    res.json({ lines });
+    res.status(200).json({ lines });
   } catch (error) {
-    res.json({ error });
+    res.status(400).json({ error });
   }
 };
 

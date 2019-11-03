@@ -30,7 +30,9 @@ const LineState = props => {
     try {
       const response = await axios.get('/api/lines');
       dispatch({ type: GET_LINES, payload: response.data });
-    } catch (error) {}
+    } catch (error) {
+      dispatch({ type: SET_ERROR, payload: error.response.data });
+    }
   };
 
   const getPath = async (source, destination) => {

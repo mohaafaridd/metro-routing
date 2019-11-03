@@ -44,6 +44,10 @@ const Stops = ({ match, location }) => {
     setCount(i);
   }, [path]);
 
+  if (error) {
+    return <h4>Error</h4>;
+  }
+
   if (loading) {
     return (
       <ul className='container mx-auto'>
