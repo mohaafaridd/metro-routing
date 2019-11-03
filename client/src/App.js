@@ -1,5 +1,10 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import './App.scss';
 import LineState from './context/line/LineState';
 import Search from './components/header/Search';
@@ -20,6 +25,7 @@ function App() {
             <main>
               <Switch>
                 <Route path='/directions' component={Stops} />
+                <Redirect to='/' />
               </Switch>
             </main>
           </div>
