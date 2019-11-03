@@ -30,9 +30,9 @@ const getLines = (req, res) => {
     //   arabic: stop.name.arabic,
     //   english: stop.name.english,
     // }));
-    res.json({ lines });
+    res.status(200).json({ lines });
   } catch (error) {
-    res.json({ error });
+    res.status(400).json({ error });
   }
 };
 
