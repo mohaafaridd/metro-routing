@@ -4,6 +4,7 @@ export interface Station {
 }
 
 export interface Line {
+  id: number;
   stations: Station[];
   top: Station;
   bottom: Station;

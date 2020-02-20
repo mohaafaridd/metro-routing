@@ -1,5 +1,7 @@
 import { Line } from '../interfaces';
 const line: Line = {
+  id: 2,
+
   stations: [
     {
       english: 'Shoubra El-Khema',
