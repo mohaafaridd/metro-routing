@@ -8,7 +8,9 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "tsc": "tsc",
+    "ts-server": "ts-node ./src/app.ts"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -20,6 +22,10 @@
     "node": "12.13.0"
   },
   "devDependencies": {
-    "concurrently": "^5.0.0"
+    "@types/express": "^4.17.2",
+    "concurrently": "^5.0.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.5"
   }
 }
