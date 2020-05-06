@@ -8,10 +8,11 @@ const App = () => {
     const shortestPath = getShortestPath(
       map,
       lineOne.stations[0],
-      lineTwo.stations[11]
+      lineTwo.stations[0]
     )
     console.log(shortestPath)
   })
+
   return (
     <div>
       <h1>Egyptian Metro Lines</h1>
