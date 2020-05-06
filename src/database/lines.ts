@@ -25,6 +25,7 @@ const intersections: Station[] = [
       english: 'El-Sadat',
     },
   },
+
   {
     intersecting: true,
     name: {
