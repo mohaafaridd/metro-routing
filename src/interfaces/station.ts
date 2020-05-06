@@ -1,8 +1,8 @@
 export interface Station {
   name: {
-    arabic: string;
-    english: string;
-  };
+    arabic: string
+    english: string
+  }
 
-  intersecting: boolean;
+  intersecting: boolean
 }

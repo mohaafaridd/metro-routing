@@ -1,3 +1,16 @@
-import { Station } from "./station";
+import { Station } from './station'
 
-export type Line = Station[];
+export interface Line {
+  stations: Station[]
+  direction: {
+    start: {
+      arabic: string
+      english: string
+    }
+
+    end: {
+      arabic: string
+      english: string
+    }
+  }
+}
