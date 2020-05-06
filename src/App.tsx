@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
 import generateMap from './database/map'
-
+import { lineOne, lineTwo } from './database/lines'
+import { getShortestPath } from './utils/getShortestPath'
 const App = () => {
   useEffect(() => {
-    generateMap()
+    const map = generateMap()
+    const shortestPath = getShortestPath(
+      map,
+      lineOne.stations[0],
+      lineTwo.stations[11]
+    )
+    console.log(shortestPath)
   })
   return (
     <div>

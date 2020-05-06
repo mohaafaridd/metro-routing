@@ -21,7 +21,7 @@ const generateMap = () => {
     ...drawLine(lineThree),
   }
 
-  console.log('list', list)
+  return list
 }
 
 export default generateMap
