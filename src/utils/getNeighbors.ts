@@ -27,11 +27,9 @@ export const getNeighbors = (station: Station) => {
         ]
       : []
 
-  const neighbors = [
-    lineOneNeighbors,
-    lineTwoNeighbors,
-    lineThreeNeighbors,
-  ].flat()
+  const neighbors = [lineOneNeighbors, lineTwoNeighbors, lineThreeNeighbors]
+    .flat()
+    .filter((neighbor) => neighbor !== undefined)
 
   return neighbors
 }
