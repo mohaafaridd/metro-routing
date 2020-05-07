@@ -7,7 +7,6 @@ const App = () => {
 
   return (
     <div id='app' className={theme}>
-      <h1 className='text-gray-500'>Egyptian Metro Lines</h1>
       <Search />
       <Path />
     </div>

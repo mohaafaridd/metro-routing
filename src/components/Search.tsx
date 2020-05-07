@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Select, { OptionTypeBase, ValueType, ActionMeta } from 'react-select'
 import LanguageContext from '../context/language/languageContext'
 import PathContext from '../context/path/pathContext'
@@ -7,10 +7,12 @@ import { getShortestPath } from '../utils/getShortestPath'
 import generateMap from '../database/map'
 import { getStation } from '../utils/getStation'
 import { Station } from '../interfaces/station'
+import ThemeContext from '../context/theme/themeContext'
 
 type OptionType = { label: string; value: string }
 
 const Search = () => {
+  const { theme } = useContext(ThemeContext)
   const { language } = useContext(LanguageContext)
   const { setPath, setWeight } = useContext(PathContext)
   const [start, setStart] = useState<ValueType<OptionTypeBase>>()
@@ -43,8 +45,15 @@ const Search = () => {
   }
 
   return (
-    <Fragment>
+    <div id='search-box' className={theme}>
+      <h1 className='text-gray-900' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+        {language === 'ARABIC'
+          ? 'دليل خطوط المترو المصرية'
+          : 'Egyptian Metro Guidelines'}
+      </h1>
+
       <Select
+        className='select'
         placeholder={
           language === 'ARABIC'
             ? 'من فضلك اختر محطة البداية'
@@ -57,6 +66,7 @@ const Search = () => {
         isRtl={language === 'ARABIC'}
       />
       <Select
+        className='select'
         placeholder={
           language === 'ARABIC'
             ? 'من فضلك اختر المحطة المرجو الوصول إليها'
@@ -68,7 +78,7 @@ const Search = () => {
         options={options}
         isRtl={language === 'ARABIC'}
       />
-    </Fragment>
+    </div>
   )
 }
 
