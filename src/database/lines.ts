@@ -8,6 +8,7 @@ const intersections: Station[] = [
       arabic: 'الشهداء',
       english: 'EL-Shohadaa',
     },
+    line: [1, 2, 3],
   },
 
   {
@@ -16,6 +17,7 @@ const intersections: Station[] = [
       arabic: 'جمال عبد الناصر',
       english: 'Gamal Abdel-Nasser',
     },
+    line: [1, 2, 3],
   },
 
   {
@@ -24,6 +26,7 @@ const intersections: Station[] = [
       arabic: 'السادات',
       english: 'El-Sadat',
     },
+    line: [1, 2],
   },
 
   {
@@ -32,6 +35,7 @@ const intersections: Station[] = [
       arabic: 'العتبة',
       english: 'El-Ataba',
     },
+    line: [1, 2, 3],
   },
 ]
 
@@ -309,7 +313,10 @@ export const lineOne: Line = {
         english: 'Helwan',
       },
     },
-  ],
+  ].map((station) => ({
+    ...station,
+    line: 1,
+  })),
 }
 
 export const lineTwo: Line = {
@@ -447,7 +454,10 @@ export const lineTwo: Line = {
         english: 'El-Monib',
       },
     },
-  ],
+  ].map((station) => ({
+    ...station,
+    line: 2,
+  })),
 }
 
 export const lineThree: Line = {
@@ -549,7 +559,10 @@ export const lineThree: Line = {
     },
     intersections[3],
     intersections[1],
-  ],
+  ].map((station) => ({
+    ...station,
+    line: 3,
+  })),
 }
 
 export const lines = [

@@ -6,6 +6,7 @@ import useOptions from '../hooks/useOptions'
 import { getShortestPath } from '../utils/getShortestPath'
 import generateMap from '../database/map'
 import { getStation } from '../utils/getStation'
+import { Station } from '../interfaces/station'
 
 type OptionType = { label: string; value: string }
 
@@ -23,9 +24,11 @@ const Search = () => {
       const finishValue = (finish as OptionType).value
       const shortestPath = getShortestPath(map, startValue, finishValue)
       const weight = +shortestPath[shortestPath.length - 1]
-      const path = shortestPath.map((key) => getStation(key))
+      const path = shortestPath
+        .map((key) => getStation(key))
+        .filter((station) => station !== undefined)
 
-      setPath(path)
+      setPath(path as Station[])
       setWeight(weight)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
