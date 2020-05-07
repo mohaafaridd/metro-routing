@@ -551,3 +551,9 @@ export const lineThree: Line = {
     intersections[1],
   ],
 }
+
+export const lines = [
+  ...lineOne.stations,
+  ...lineTwo.stations,
+  ...lineThree.stations,
+]
