@@ -1,12 +1,12 @@
 import { Station } from '../station'
 
 export interface State {
-  path: Station[]
+  path: (Station | undefined)[]
   weight: number
 }
 
 export interface Methods {
-  setPath(path: Station[]): void
+  setPath(path: (Station | undefined)[]): void
   setWeight(weight: number): void
 }
 

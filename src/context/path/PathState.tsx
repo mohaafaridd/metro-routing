@@ -14,7 +14,7 @@ const PathState: FC = ({ children }) => {
       dispatch({
         type: 'SET_PATH',
         payload: {
-          path,
+          path: path.filter((station) => station !== undefined),
           weight: 0,
         },
       })

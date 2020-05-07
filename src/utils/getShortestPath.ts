@@ -1,4 +1,3 @@
-import { Station } from '../interfaces/station'
 import { Map } from '../interfaces/map'
 
 type Nodes = { [key: string]: number }
@@ -6,11 +5,11 @@ type Nodes = { [key: string]: number }
 const sortByWeight = (nodes: Nodes, map: Map) =>
   Object.keys(nodes).sort((a, b) => map[a].weight - map[b].weight)
 
-const shortestPathPoints = (map: Map, start: Station, finish: Station) => {
-  let next = finish.name.english
+const shortestPathPoints = (map: Map, start: string, finish: string) => {
+  let next = finish
   const path: string[] = []
 
-  while (next !== start.name.english) {
+  while (next !== start) {
     let MIN_WEIGHT = Number.MAX_VALUE
     let MIN_VERTEX = ''
 
@@ -28,13 +27,13 @@ const shortestPathPoints = (map: Map, start: Station, finish: Station) => {
   return path
 }
 
-export const getShortestPath = (map: Map, start: Station, finish: Station) => {
+export const getShortestPath = (map: Map, start: string, finish: string) => {
   const nodes: Nodes = {}
 
   // This loop to set the starting point weight with 0
   // That to make sure that in the next step we choose it as the starting point
   for (const key in map) {
-    if (map[key].name === start.name.english) map[key].weight = 0
+    if (map[key].name === start) map[key].weight = 0
     else map[key].weight = Number.MAX_VALUE
 
     nodes[map[key].name] = map[key].weight
@@ -55,8 +54,8 @@ export const getShortestPath = (map: Map, start: Station, finish: Station) => {
     delete nodes[sorted[0]]
   }
 
-  const finalWeight = map[finish.name.english].weight
+  const finalWeight = map[finish].weight
   let path = shortestPathPoints(map, start, finish).reverse()
-  path.push(finish.name.english, finalWeight.toString())
+  path.push(finish, finalWeight.toString())
   return path
 }
