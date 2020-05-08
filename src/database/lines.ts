@@ -17,7 +17,7 @@ const intersections: Station[] = [
       arabic: 'جمال عبد الناصر',
       english: 'Gamal Abdel-Nasser',
     },
-    line: [1, 2, 3],
+    line: [1, 2],
   },
 
   {
@@ -58,6 +58,7 @@ export const lineOne: Line = {
         arabic: 'المرج الجديدة',
         english: 'El-Marg El-Gededa',
       },
+      line: [1],
     },
 
     {
@@ -66,6 +67,7 @@ export const lineOne: Line = {
         arabic: 'المرج',
         english: 'El-Marg',
       },
+      line: [1],
     },
 
     {
@@ -74,6 +76,7 @@ export const lineOne: Line = {
         arabic: 'عزبة النخيل',
         english: 'Ezzbit Al-Nakheel',
       },
+      line: [1],
     },
 
     {
@@ -82,6 +85,7 @@ export const lineOne: Line = {
         arabic: 'عين شمس',
         english: 'Ain Shams',
       },
+      line: [1],
     },
 
     {
@@ -90,6 +94,7 @@ export const lineOne: Line = {
         arabic: 'المطرية',
         english: 'EL-Matarya',
       },
+      line: [1],
     },
 
     {
@@ -98,6 +103,7 @@ export const lineOne: Line = {
         arabic: 'حلمية الزيتون',
         english: 'Helmyet El-Zaytoun',
       },
+      line: [1],
     },
 
     {
@@ -106,6 +112,7 @@ export const lineOne: Line = {
         arabic: 'حدائق الزيتون',
         english: 'Hadayq El-Zaytoun',
       },
+      line: [1],
     },
 
     {
@@ -114,6 +121,7 @@ export const lineOne: Line = {
         arabic: 'سرايا القبة',
         english: 'Saraya El-Qobba',
       },
+      line: [1],
     },
 
     {
@@ -122,6 +130,7 @@ export const lineOne: Line = {
         arabic: 'حمامات القبة',
         english: 'Hadayq El-Qobba',
       },
+      line: [1],
     },
 
     {
@@ -130,6 +139,7 @@ export const lineOne: Line = {
         arabic: 'كوبري القبة',
         english: 'Kobry El-Qobba',
       },
+      line: [1],
     },
 
     {
@@ -138,6 +148,7 @@ export const lineOne: Line = {
         arabic: 'منشية الصدر',
         english: 'Manshyat El-Sadr',
       },
+      line: [1],
     },
 
     {
@@ -146,6 +157,7 @@ export const lineOne: Line = {
         arabic: 'الدمرداش',
         english: 'El-Demerdash',
       },
+      line: [1],
     },
 
     {
@@ -154,6 +166,7 @@ export const lineOne: Line = {
         arabic: 'غمرة',
         english: 'Ghamra',
       },
+      line: [1],
     },
 
     intersections[0],
@@ -164,6 +177,7 @@ export const lineOne: Line = {
         arabic: 'عرابي',
         english: 'Oraby',
       },
+      line: [1],
     },
 
     intersections[1],
@@ -176,6 +190,7 @@ export const lineOne: Line = {
         arabic: 'سعد زغلول',
         english: 'Saad Zaghloul',
       },
+      line: [1],
     },
 
     {
@@ -184,6 +199,7 @@ export const lineOne: Line = {
         arabic: 'السيدة زينب',
         english: 'El-Sayeda Zainab',
       },
+      line: [1],
     },
 
     {
@@ -192,6 +208,7 @@ export const lineOne: Line = {
         arabic: 'الملك الصالح',
         english: 'El-Malek El-Saleh',
       },
+      line: [1],
     },
 
     {
@@ -200,6 +217,7 @@ export const lineOne: Line = {
         arabic: 'ماري جرجس',
         english: 'Mary Gerges',
       },
+      line: [1],
     },
 
     {
@@ -208,6 +226,7 @@ export const lineOne: Line = {
         arabic: 'الزهراء',
         english: 'El-Zahraa',
       },
+      line: [1],
     },
 
     {
@@ -216,6 +235,7 @@ export const lineOne: Line = {
         arabic: 'دار السلام',
         english: 'Dar El-Salaam',
       },
+      line: [1],
     },
 
     {
@@ -224,6 +244,7 @@ export const lineOne: Line = {
         arabic: 'حدائق المعادي',
         english: 'Hadayq El-Maadi',
       },
+      line: [1],
     },
 
     {
@@ -232,6 +253,7 @@ export const lineOne: Line = {
         arabic: 'المعادي',
         english: 'El-Maadi',
       },
+      line: [1],
     },
 
     {
@@ -240,6 +262,7 @@ export const lineOne: Line = {
         arabic: 'ثكنات المعادي',
         english: 'Thakanat El-Maadi',
       },
+      line: [1],
     },
 
     {
@@ -248,6 +271,7 @@ export const lineOne: Line = {
         arabic: 'طره البلد',
         english: 'Tora El-Balad',
       },
+      line: [1],
     },
 
     {
@@ -256,6 +280,7 @@ export const lineOne: Line = {
         arabic: 'كوتسيكا',
         english: 'Kotseika',
       },
+      line: [1],
     },
 
     {
@@ -264,6 +289,7 @@ export const lineOne: Line = {
         arabic: 'طره الاسمنت',
         english: 'Tora El-Asmant',
       },
+      line: [1],
     },
 
     {
@@ -272,6 +298,7 @@ export const lineOne: Line = {
         arabic: 'المعصرة',
         english: 'El-Maasara',
       },
+      line: [1],
     },
 
     {
@@ -280,6 +307,7 @@ export const lineOne: Line = {
         arabic: 'حدائق حلوان',
         english: 'Hadayq Helwan',
       },
+      line: [1],
     },
 
     {
@@ -288,6 +316,7 @@ export const lineOne: Line = {
         arabic: 'وادي حوف',
         english: 'Wady Houf',
       },
+      line: [1],
     },
 
     {
@@ -296,6 +325,7 @@ export const lineOne: Line = {
         arabic: 'جامعة حلوان',
         english: 'Gamet Helwan',
       },
+      line: [1],
     },
 
     {
@@ -304,6 +334,7 @@ export const lineOne: Line = {
         arabic: 'عين حلوان',
         english: 'Ain Helwan',
       },
+      line: [1],
     },
 
     {
@@ -312,11 +343,9 @@ export const lineOne: Line = {
         arabic: 'حلوان',
         english: 'Helwan',
       },
+      line: [1],
     },
-  ].map((station) => ({
-    ...station,
-    line: 1,
-  })),
+  ],
 }
 
 export const lineTwo: Line = {
@@ -338,6 +367,7 @@ export const lineTwo: Line = {
         arabic: 'شبرا الخيمة',
         english: 'Shoubra El-Khema',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -345,6 +375,7 @@ export const lineTwo: Line = {
         arabic: 'الزراعة',
         english: 'El-Zeraa',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -352,6 +383,7 @@ export const lineTwo: Line = {
         arabic: 'المظلات',
         english: 'El-Mezalat',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -359,6 +391,7 @@ export const lineTwo: Line = {
         arabic: 'الخلفاوي',
         english: 'El-Khalafawy',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -366,6 +399,7 @@ export const lineTwo: Line = {
         arabic: 'سانت تريزا',
         english: 'St. Teresa',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -373,6 +407,7 @@ export const lineTwo: Line = {
         arabic: 'روض الفرج',
         english: 'Roud El-Farag',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -380,6 +415,7 @@ export const lineTwo: Line = {
         arabic: 'مسرة',
         english: 'Masara',
       },
+      line: [2],
     },
     intersections[0],
     intersections[3],
@@ -389,6 +425,7 @@ export const lineTwo: Line = {
         arabic: 'محمد نجيب',
         english: 'Mohamed Naguib',
       },
+      line: [2],
     },
     intersections[2],
     {
@@ -397,6 +434,7 @@ export const lineTwo: Line = {
         arabic: 'الاوبرا',
         english: 'El-Opera',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -404,6 +442,7 @@ export const lineTwo: Line = {
         arabic: 'الدقي',
         english: 'Dokki',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -411,6 +450,7 @@ export const lineTwo: Line = {
         arabic: 'البحوث',
         english: 'Bohoth',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -418,6 +458,7 @@ export const lineTwo: Line = {
         arabic: 'جامعة القاهرة',
         english: 'Gamet El-Qahera',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -425,6 +466,7 @@ export const lineTwo: Line = {
         arabic: 'فيصل',
         english: 'Faisel',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -432,6 +474,7 @@ export const lineTwo: Line = {
         arabic: 'الجيزة',
         english: 'EL-Giza',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -439,6 +482,7 @@ export const lineTwo: Line = {
         arabic: 'أم المصريين',
         english: 'Om El-Masreen',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -446,6 +490,7 @@ export const lineTwo: Line = {
         arabic: 'ساقية مكي',
         english: 'Saqyet Mekky',
       },
+      line: [2],
     },
     {
       intersecting: false,
@@ -453,11 +498,9 @@ export const lineTwo: Line = {
         arabic: 'المنيب',
         english: 'El-Monib',
       },
+      line: [2],
     },
-  ].map((station) => ({
-    ...station,
-    line: 2,
-  })),
+  ],
 }
 
 export const lineThree: Line = {
@@ -479,6 +522,7 @@ export const lineThree: Line = {
         arabic: 'نادي الشمس',
         english: 'Nady El-Shams',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -486,6 +530,7 @@ export const lineThree: Line = {
         arabic: 'ألف مسكن',
         english: 'Alf Maskan',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -493,6 +538,7 @@ export const lineThree: Line = {
         arabic: 'هليوبوليس',
         english: 'Heliopolis',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -500,6 +546,7 @@ export const lineThree: Line = {
         arabic: 'هارون',
         english: 'Haroun',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -507,6 +554,7 @@ export const lineThree: Line = {
         arabic: 'الأهرام',
         english: 'El-Ahram',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -514,6 +562,7 @@ export const lineThree: Line = {
         arabic: 'كلية البنات',
         english: 'Kolyet El-Banat',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -521,6 +570,7 @@ export const lineThree: Line = {
         arabic: 'الأستاد',
         english: 'El-Estad',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -528,6 +578,7 @@ export const lineThree: Line = {
         arabic: 'أرض المعارض',
         english: 'Ard El-Maared',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -535,6 +586,7 @@ export const lineThree: Line = {
         arabic: 'العباسية',
         english: 'El Abaasya',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -542,6 +594,7 @@ export const lineThree: Line = {
         arabic: 'عبده باشا',
         english: 'Abdo Basha',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -549,6 +602,7 @@ export const lineThree: Line = {
         arabic: 'الجيش',
         english: 'El-Gesh',
       },
+      line: [3],
     },
     {
       intersecting: false,
@@ -556,13 +610,10 @@ export const lineThree: Line = {
         arabic: 'باب الشعرية',
         english: 'Bab El-Sherya',
       },
+      line: [3],
     },
     intersections[3],
-    intersections[1],
-  ].map((station) => ({
-    ...station,
-    line: 3,
-  })),
+  ],
 }
 
 export const lines = [

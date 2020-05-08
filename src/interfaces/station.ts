@@ -5,7 +5,7 @@ export interface Station {
   }
 
   intersecting: boolean
-  line: number | number[]
+  line: number[]
 }
 
 export interface Node {
