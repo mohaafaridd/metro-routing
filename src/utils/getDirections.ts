@@ -7,7 +7,7 @@ export const getDirections = (path: Station[]) => {
 
   const directions = _.uniq(
     path.map((station, index) => {
-      if (index === path.length - 1) return
+      if (index === path.length - 1) return undefined
 
       // Destination
       const destination = path[index + 1]
@@ -22,13 +22,13 @@ export const getDirections = (path: Station[]) => {
           (source) => source.name.english === station.name.english
         ) -
         line.stations.findIndex(
-          (source) => source.name.english === station.name.english
+          (source) => source.name.english === destination.name.english
         )
 
-      if (trigger < 0) return JSON.stringify(line.direction.start)
-      else return JSON.stringify(line.direction.end)
+      if (trigger > 0) return line.direction.start
+      else return line.direction.end
     })
   )
 
-  return directions
+  return directions.filter((direction) => direction !== undefined)
 }

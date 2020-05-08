@@ -3,6 +3,8 @@ import PathContext from '../context/path/pathContext'
 import Station from './Station'
 import LanguageContext from '../context/language/languageContext'
 import { getDirections } from '../utils/getDirections'
+import { drawPath } from '../utils/drawPath'
+import { Direction } from '../interfaces/line'
 
 const Path = () => {
   const { language } = useContext(LanguageContext)
@@ -11,7 +13,12 @@ const Path = () => {
 
   useEffect(() => {
     setDirections(getDirections(path))
+    console.log('directions', getDirections(path))
   }, [path])
+
+  useEffect(() => {
+    const x = drawPath(path, directions as Direction[])
+  }, [directions])
 
   return (
     <div>

@@ -1,16 +1,14 @@
 import { Station } from './station'
 
+export interface Direction {
+  arabic: string
+  english: string
+}
+
 export interface Line {
   stations: Station[]
   direction: {
-    start: {
-      arabic: string
-      english: string
-    }
-
-    end: {
-      arabic: string
-      english: string
-    }
+    start: Direction
+    end: Direction
   }
 }

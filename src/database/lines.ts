@@ -8,7 +8,7 @@ const intersections: Station[] = [
       arabic: 'الشهداء',
       english: 'EL-Shohadaa',
     },
-    line: [1, 2, 3],
+    line: [1, 2],
   },
 
   {
@@ -17,7 +17,7 @@ const intersections: Station[] = [
       arabic: 'جمال عبد الناصر',
       english: 'Gamal Abdel-Nasser',
     },
-    line: [1, 2],
+    line: [1],
   },
 
   {
@@ -35,7 +35,7 @@ const intersections: Station[] = [
       arabic: 'العتبة',
       english: 'El-Ataba',
     },
-    line: [1, 2, 3],
+    line: [2, 3],
   },
 ]
 
