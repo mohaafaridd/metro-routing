@@ -1,6 +1,7 @@
 #contact {
   @apply flex flex-col;
   @apply items-center;
+  font-family: 'Open Sans', sans-serif;
 
   #contacts-list {
     @apply flex my-2;
@@ -40,7 +41,7 @@
   }
 
   #copyright {
-    @apply p-5;
+    @apply p-5 text-center;
   }
 
   &.dark {

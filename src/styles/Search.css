@@ -1,5 +1,5 @@
 #search-box {
-  @apply p-5 mx-auto;
+  @apply p-5 w-full;
   @apply grid gap-2;
   @apply bg-white border shadow rounded;
 

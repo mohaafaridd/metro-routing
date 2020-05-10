@@ -12,7 +12,7 @@ const LanguageToggler = () => {
   }, [language])
 
   return (
-    <div className='flex justify-end p-2'>
+    <div className='flex self-end p-2'>
       <Switch
         width={70}
         handleDiameter={30}

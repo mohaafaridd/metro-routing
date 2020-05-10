@@ -1,5 +1,5 @@
 #path {
-  @apply my-2 mx-auto;
+  @apply my-2 w-full;
   @apply flex-grow;
 }
 
