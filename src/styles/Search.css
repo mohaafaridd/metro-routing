@@ -20,7 +20,7 @@
   }
 
   &.dark {
-    @apply bg-gray-700 border-0;
+    @apply bg-gray-700 border-gray-700;
 
     h1 {
       @apply text-white;
