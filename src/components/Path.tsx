@@ -8,7 +8,7 @@ const Path = () => {
   const { path } = useContext(PathContext)
 
   return (
-    <div>
+    <div id='path'>
       <ul dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
         {path.map((station, index) => (
           <Station key={index} station={station} index={index} />

@@ -11,18 +11,16 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   const { language } = useContext(LanguageContext)
   const { path } = useContext(PathContext)
 
-  const [before, setBefore] = useState(path[index - 1])
-  const [after, setAfter] = useState(path[index + 1])
+  const [before] = useState(path[index - 1])
+  const [after] = useState(path[index + 1])
 
   const [starting, setStarting] = useState(false)
   const [middle, setMiddle] = useState(false)
-  const [ending, setEnding] = useState(false)
   const [direction, setDirection] = useState<Direction | undefined>()
 
   useEffect(() => {
     if (after && !before) setStarting(true)
     if (after && before) setMiddle(true)
-    if (!after && before) setEnding(true)
   }, [before, after])
 
   useEffect(() => {
@@ -55,7 +53,9 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
           )}
           <li className='direction' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
             <p>
-              {language === 'ARABIC' ? direction.arabic : direction.english}
+              {language === 'ARABIC'
+                ? `إتجاه ${direction.arabic}`
+                : `${direction.english} direction`}
             </p>
           </li>
         </Fragment>

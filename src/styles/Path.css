@@ -1,0 +1,15 @@
+#path {
+  @apply my-2 mx-auto;
+}
+
+@screen md {
+  #path {
+    @apply w-1/2;
+  }
+}
+
+@screen xl {
+  #path {
+    @apply w-1/3;
+  }
+}

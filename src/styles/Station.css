@@ -1,6 +1,7 @@
+.direction,
 .station {
   @apply flex items-center;
-  @apply bg-white p-2 rounded border;
+  @apply bg-white p-2 rounded border shadow;
 
   .changing-icon {
     @apply bg-green-500 text-white rounded-full shadow p-2 mx-2;
@@ -9,4 +10,8 @@
   &:nth-of-type(even) {
     @apply my-2;
   }
+}
+
+.direction {
+  @apply bg-blue-500 text-white;
 }
