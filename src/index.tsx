@@ -4,10 +4,13 @@ import App from './App'
 import './styles/tailwind.css'
 import * as serviceWorker from './serviceWorker'
 import ContextLayers from './ContextLayers'
+import RoutingWrapper from './RoutingWrapper'
 ReactDOM.render(
-  <ContextLayers>
-    <App />
-  </ContextLayers>,
+  <RoutingWrapper>
+    <ContextLayers>
+      <App />
+    </ContextLayers>
+  </RoutingWrapper>,
   document.getElementById('root')
 )
 
