@@ -5,6 +5,7 @@ import LanguageContext from '../context/language/languageContext'
 import { Direction } from '../interfaces/line'
 import { getStationTrigger } from '../utils/getStationTrigger'
 import { getDirection } from '../utils/getDirection'
+import { getLine } from '../utils/getLine'
 
 const Station = ({ station, index }: { station: IStation; index: number }) => {
   const { language } = useContext(LanguageContext)
@@ -16,7 +17,6 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   const [starting, setStarting] = useState(false)
   const [middle, setMiddle] = useState(false)
   const [ending, setEnding] = useState(false)
-  const [canChange, setCanChange] = useState(station.intersecting)
   const [direction, setDirection] = useState<Direction | undefined>()
 
   useEffect(() => {
@@ -27,17 +27,38 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
 
   useEffect(() => {
     if (starting) {
-      const trigger = getStationTrigger(station, path[index + 1])
-      setDirection(getDirection(trigger, station, path[index + 1]))
+      const trigger = getStationTrigger(station, after)
+      setDirection(getDirection(trigger, station, after))
     }
-  }, [path])
+
+    if (middle && station.intersecting) {
+      const line = getLine(before, after)
+      if (!line) {
+        const trigger = getStationTrigger(station, after)
+        setDirection(getDirection(trigger, station, after))
+      }
+    }
+  }, [starting, middle, path])
 
   return (
     <Fragment>
       {direction && (
-        <li className='direction' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
-          <p>{language === 'ARABIC' ? direction.arabic : direction.english}</p>
-        </li>
+        <Fragment>
+          {before && (
+            <li className='station' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+              <p>
+                {language === 'ARABIC'
+                  ? station.name.arabic
+                  : station.name.english}
+              </p>
+            </li>
+          )}
+          <li className='direction' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+            <p>
+              {language === 'ARABIC' ? direction.arabic : direction.english}
+            </p>
+          </li>
+        </Fragment>
       )}
       <li className='station' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
         <p>
