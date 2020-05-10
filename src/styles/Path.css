@@ -1,5 +1,6 @@
 #path {
   @apply my-2 mx-auto;
+  @apply flex-grow;
 }
 
 @screen md {

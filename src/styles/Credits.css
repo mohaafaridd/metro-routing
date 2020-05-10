@@ -1,0 +1,56 @@
+#contact {
+  @apply flex flex-col;
+  @apply items-center;
+
+  #contacts-list {
+    @apply flex my-2;
+
+    a {
+      @apply p-2 mx-2 shadow;
+      @apply border border-gray-500 rounded-full;
+
+      &:hover {
+        @apply text-white;
+      }
+
+      &:nth-of-type(1) {
+        &:hover {
+          @apply bg-blue-500 border-blue-500;
+        }
+      }
+
+      &:nth-of-type(2) {
+        &:hover {
+          @apply bg-blue-700 border-blue-700;
+        }
+      }
+
+      &:nth-of-type(3) {
+        &:hover {
+          @apply bg-black border-black;
+        }
+      }
+
+      &:nth-of-type(4) {
+        &:hover {
+          @apply bg-blue-900 border-blue-900;
+        }
+      }
+    }
+  }
+
+  #copyright {
+    @apply p-5;
+  }
+
+  &.dark {
+    #contacts-list {
+      a {
+        @apply text-white;
+      }
+    }
+    #copyright {
+      @apply text-white;
+    }
+  }
+}

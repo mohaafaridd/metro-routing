@@ -6,6 +6,7 @@ import ThemeToggler from './components/ThemeToggler'
 import LanguageToggler from './components/LanguageToggler'
 import { Theme } from './interfaces/context/theme'
 import { Language } from './interfaces/context/language'
+import Credits from './components/Credits'
 const App = () => {
   const { theme, setTheme } = useContext(ThemeContext)
   const { language, setLanguage } = useContext(LanguageContext)
@@ -40,6 +41,7 @@ const App = () => {
       <LanguageToggler />
       <Search />
       <Path />
+      <Credits />
     </div>
   )
 }
