@@ -72,6 +72,12 @@ const Search = () => {
     else setFinish(value)
   }
 
+  const onSwitch = () => {
+    const startValue = start
+    setStart(finish)
+    setFinish(startValue)
+  }
+
   return (
     <div id='search-box' className={theme}>
       <h1 className='text-gray-900' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
@@ -117,7 +123,7 @@ const Search = () => {
         isRtl={language === 'ARABIC'}
       />
 
-      <button>
+      <button onClick={onSwitch}>
         <FaExchangeAlt />
       </button>
     </div>

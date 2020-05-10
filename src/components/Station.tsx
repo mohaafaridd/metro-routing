@@ -11,12 +11,21 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   const { language } = useContext(LanguageContext)
   const { path } = useContext(PathContext)
 
-  const [before] = useState(path[index - 1])
-  const [after] = useState(path[index + 1])
+  const [before, setBefore] = useState(path[index - 1])
+  const [after, setAfter] = useState(path[index + 1])
 
   const [starting, setStarting] = useState(false)
   const [middle, setMiddle] = useState(false)
   const [direction, setDirection] = useState<Direction | undefined>()
+
+  useEffect(() => {
+    console.log('called 1')
+    setBefore(path[index - 1])
+    setAfter(path[index + 1])
+    setStarting(false)
+    setMiddle(false)
+    setDirection(undefined)
+  }, [path])
 
   useEffect(() => {
     if (after && !before) setStarting(true)
@@ -24,7 +33,11 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   }, [before, after])
 
   useEffect(() => {
+    console.log('called 3')
+
     if (starting) {
+      console.log('station', station)
+      console.log('after', after)
       const trigger = getStationTrigger(station, after)
       setDirection(getDirection(trigger, station, after))
     }
@@ -36,7 +49,7 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
         setDirection(getDirection(trigger, station, after))
       }
     }
-  }, [starting, middle, path])
+  }, [starting, middle])
 
   return (
     <Fragment>
