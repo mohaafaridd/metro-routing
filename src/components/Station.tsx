@@ -23,7 +23,6 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
     setAfter(path[index + 1])
     setStarting(false)
     setMiddle(false)
-    setDirection(undefined)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path])
 
@@ -36,14 +35,14 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
     if (starting) {
       const trigger = getStationTrigger(station, after)
       setDirection(getDirection(trigger, station, after))
-    }
-
-    if (middle && station.intersecting) {
+    } else if (middle && station.intersecting) {
       const line = getLine(before, after)
       if (!line) {
         const trigger = getStationTrigger(station, after)
         setDirection(getDirection(trigger, station, after))
       }
+    } else {
+      setDirection(undefined)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [starting, middle])

@@ -128,7 +128,7 @@ export const lineOne: Line = {
       intersecting: false,
       name: {
         arabic: 'حمامات القبة',
-        english: 'Hadayq El-Qobba',
+        english: 'Hamamat El-Qobba',
       },
       line: [1],
     },
