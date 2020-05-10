@@ -14,7 +14,7 @@ const drawLine = (line: Line) =>
     return acc
   }, {})
 
-const generateMap = () => {
+export const generateMap = () => {
   const list: Map = {
     ...drawLine(lineOne),
     ...drawLine(lineTwo),

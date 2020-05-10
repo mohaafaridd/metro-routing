@@ -1,13 +1,11 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react'
-import { Station as IStation } from '../interfaces/station'
-import PathContext from '../context/path/pathContext'
-import LanguageContext from '../context/language/languageContext'
-import { Direction } from '../interfaces/line'
-import { getStationTrigger } from '../utils/getStationTrigger'
-import { getDirection } from '../utils/getDirection'
-import { getLine } from '../utils/getLine'
+
+import { PathContext, LanguageContext, ThemeContext } from '../context'
+import { Station as IStation, Direction } from '../interfaces'
+import { getStationTrigger, getDirection, getLine } from '../utils'
 
 const Station = ({ station, index }: { station: IStation; index: number }) => {
+  const { theme } = useContext(ThemeContext)
   const { language } = useContext(LanguageContext)
   const { path } = useContext(PathContext)
 
@@ -52,7 +50,10 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
       {direction && (
         <Fragment>
           {before && (
-            <li className='station' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+            <li
+              className={`station ${theme}`}
+              dir={language === 'ARABIC' ? 'rtl' : 'ltr'}
+            >
               <p>
                 {language === 'ARABIC'
                   ? station.name.arabic
@@ -60,7 +61,10 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
               </p>
             </li>
           )}
-          <li className='direction' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+          <li
+            className={`direction ${theme}`}
+            dir={language === 'ARABIC' ? 'rtl' : 'ltr'}
+          >
             <p>
               {language === 'ARABIC'
                 ? `إتجاه ${direction.arabic}`
@@ -69,7 +73,10 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
           </li>
         </Fragment>
       )}
-      <li className='station' dir={language === 'ARABIC' ? 'rtl' : 'ltr'}>
+      <li
+        className={`station ${theme}`}
+        dir={language === 'ARABIC' ? 'rtl' : 'ltr'}
+      >
         <p>
           {language === 'ARABIC' ? station.name.arabic : station.name.english}
         </p>

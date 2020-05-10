@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-import PathContext from '../context/path/pathContext'
+import { LanguageContext, PathContext } from '../context'
 import Station from './Station'
-import LanguageContext from '../context/language/languageContext'
 
 const Path = () => {
   const { language } = useContext(LanguageContext)

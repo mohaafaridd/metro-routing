@@ -3,14 +3,11 @@ import Select, { OptionTypeBase, ValueType, ActionMeta } from 'react-select'
 import { useQueryParam, StringParam } from 'use-query-params'
 import { FaExchangeAlt } from 'react-icons/fa'
 
-import LanguageContext from '../context/language/languageContext'
-import PathContext from '../context/path/pathContext'
+import { LanguageContext, PathContext, ThemeContext } from '../context'
 import useOptions from '../hooks/useOptions'
-import { getShortestPath } from '../utils/getShortestPath'
-import generateMap from '../database/map'
-import { getStation } from '../utils/getStation'
-import { Station } from '../interfaces/station'
-import ThemeContext from '../context/theme/themeContext'
+import { getShortestPath, getStation } from '../utils'
+import { generateMap } from '../database'
+import { Station } from '../interfaces'
 
 type OptionType = { label: string; value: string }
 
