@@ -1,5 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
-import Select, { OptionTypeBase, ValueType, ActionMeta } from 'react-select'
+import Select, {
+  OptionTypeBase,
+  ValueType,
+  ActionMeta,
+  OptionsType,
+} from 'react-select'
+import { useQueryParam, NumberParam, StringParam } from 'use-query-params'
+
 import LanguageContext from '../context/language/languageContext'
 import PathContext from '../context/path/pathContext'
 import useOptions from '../hooks/useOptions'
@@ -15,11 +22,37 @@ const Search = () => {
   const { theme } = useContext(ThemeContext)
   const { language } = useContext(LanguageContext)
   const { setPath, setWeight } = useContext(PathContext)
+  const [source, setSource] = useQueryParam('source', StringParam)
+  const [destination, setDestination] = useQueryParam(
+    'destination',
+    StringParam
+  )
+
   const [start, setStart] = useState<ValueType<OptionTypeBase>>()
   const [finish, setFinish] = useState<ValueType<OptionTypeBase>>()
   const options = useOptions(language)
 
   useEffect(() => {
+    if (source) {
+      const line = options.find((i) =>
+        i.options.find((j) => j.value === source)
+      )
+      const station = line?.options.find((i) => i.value === source)
+      setStart(station)
+    }
+    if (destination) {
+      const line = options.find((i) =>
+        i.options.find((j) => j.value === destination)
+      )
+      const station = line?.options.find((i) => i.value === destination)
+      setFinish(station)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (start) setSource((start as OptionType).value)
+    if (finish) setDestination((finish as OptionType).value)
+
     if (start && finish) {
       const map = generateMap()
       const startValue = (start as OptionType).value

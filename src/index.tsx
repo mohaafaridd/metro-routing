@@ -6,11 +6,11 @@ import * as serviceWorker from './serviceWorker'
 import ContextLayers from './ContextLayers'
 import RoutingWrapper from './RoutingWrapper'
 ReactDOM.render(
-  <RoutingWrapper>
-    <ContextLayers>
+  <ContextLayers>
+    <RoutingWrapper>
       <App />
-    </ContextLayers>
-  </RoutingWrapper>,
+    </RoutingWrapper>
+  </ContextLayers>,
   document.getElementById('root')
 )
 
