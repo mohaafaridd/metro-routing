@@ -35,7 +35,7 @@ const App = () => {
   }, [language])
 
   return (
-    <div id='app' className={theme}>
+    <div id='app' className={`${theme} ${language}`}>
       <ThemeToggler />
       <LanguageToggler />
       <Search />

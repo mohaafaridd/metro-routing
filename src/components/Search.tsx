@@ -41,7 +41,7 @@ const Search = () => {
       setFinish(station)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [language])
 
   useEffect(() => {
     if (start) setSource((start as OptionType).value)

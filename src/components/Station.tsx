@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react'
+import { FaExchangeAlt } from 'react-icons/fa'
 
 import { PathContext, LanguageContext, ThemeContext } from '../context'
 import { Station as IStation, Direction } from '../interfaces'
@@ -21,6 +22,7 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
     setAfter(path[index + 1])
     setStarting(false)
     setMiddle(false)
+    if (path.length === 1) setDirection(undefined)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path])
 
@@ -39,8 +41,6 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
         const trigger = getStationTrigger(station, after)
         setDirection(getDirection(trigger, station, after))
       }
-    } else {
-      setDirection(undefined)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [starting, middle])
@@ -65,6 +65,11 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
             className={`direction ${theme}`}
             dir={language === 'ARABIC' ? 'rtl' : 'ltr'}
           >
+            {before && (
+              <span className='change-icon'>
+                <FaExchangeAlt size={10} />
+              </span>
+            )}
             <p>
               {language === 'ARABIC'
                 ? `إتجاه ${direction.arabic}`
