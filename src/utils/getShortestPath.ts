@@ -54,7 +54,6 @@ export const getShortestPath = (map: Map, start: string, finish: string) => {
     delete nodes[sorted[0]]
   }
 
-  const finalWeight = map[finish].weight
   let path = shortestPathPoints(map, start, finish).reverse()
   path.push(finish)
   return path

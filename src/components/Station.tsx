@@ -19,12 +19,12 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   const [direction, setDirection] = useState<Direction | undefined>()
 
   useEffect(() => {
-    console.log('called 1')
     setBefore(path[index - 1])
     setAfter(path[index + 1])
     setStarting(false)
     setMiddle(false)
     setDirection(undefined)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path])
 
   useEffect(() => {
@@ -33,11 +33,7 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
   }, [before, after])
 
   useEffect(() => {
-    console.log('called 3')
-
     if (starting) {
-      console.log('station', station)
-      console.log('after', after)
       const trigger = getStationTrigger(station, after)
       setDirection(getDirection(trigger, station, after))
     }
@@ -49,6 +45,7 @@ const Station = ({ station, index }: { station: IStation; index: number }) => {
         setDirection(getDirection(trigger, station, after))
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [starting, middle])
 
   return (

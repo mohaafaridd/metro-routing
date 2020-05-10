@@ -43,6 +43,7 @@ const Search = () => {
       const station = line?.options.find((i) => i.value === destination)
       setFinish(station)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { Station } from '../interfaces/station'
-import _ from 'lodash'
 import { getLine } from './getLine'
 
 export const getDirection = (
