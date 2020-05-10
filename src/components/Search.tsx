@@ -1,11 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
-import Select, {
-  OptionTypeBase,
-  ValueType,
-  ActionMeta,
-  OptionsType,
-} from 'react-select'
-import { useQueryParam, NumberParam, StringParam } from 'use-query-params'
+import Select, { OptionTypeBase, ValueType, ActionMeta } from 'react-select'
+import { useQueryParam, StringParam } from 'use-query-params'
+import { FaExchangeAlt } from 'react-icons/fa'
 
 import LanguageContext from '../context/language/languageContext'
 import PathContext from '../context/path/pathContext'
@@ -85,6 +81,11 @@ const Search = () => {
       </h1>
 
       <Select
+        noOptionsMessage={(obj) => {
+          return language === 'ARABIC'
+            ? 'تعذر إيجاد المحطة'
+            : 'No station was found'
+        }}
         className='select'
         placeholder={
           language === 'ARABIC'
@@ -98,6 +99,11 @@ const Search = () => {
         isRtl={language === 'ARABIC'}
       />
       <Select
+        noOptionsMessage={(obj) => {
+          return language === 'ARABIC'
+            ? 'تعذر إيجاد المحطة'
+            : 'No station was found'
+        }}
         className='select'
         placeholder={
           language === 'ARABIC'
@@ -110,6 +116,10 @@ const Search = () => {
         options={options}
         isRtl={language === 'ARABIC'}
       />
+
+      <button>
+        <FaExchangeAlt />
+      </button>
     </div>
   )
 }
