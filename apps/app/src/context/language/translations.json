@@ -94,7 +94,8 @@
     "el-tawfikeya": "El-Tawfikeya",
     "wadi-el-nil": "Wadi El-Nil",
     "gamaat-el-dowal-al-arabiya": "Gamaat El Dowal Al-Arabiya",
-    "bulaq-el-dakroor": "Bulaq El-Dakroor"
+    "bulaq-el-dakroor": "Bulaq El-Dakroor",
+    "switch": "Switch"
   },
   "ar": {
     "line-1": "الخط الأول",
@@ -191,6 +192,7 @@
     "gamaat-el-dowal-al-arabiya": "جامعة الدول العربية",
     "bulaq-el-dakroor": "بولاق الدكرور",
     "switch-line": "تغيير الخط من {{from}} إلى {{to}} في إتجاه {{direction}}",
-    "journey-start": "بداية الرحلة في إتجاه {{direction}}"
+    "journey-start": "بداية الرحلة في إتجاه {{direction}}",
+    "switch": "تبديل"
   }
 }

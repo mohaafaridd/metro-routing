@@ -69,7 +69,7 @@ export const Form = () => {
           setEndingStation(startingStation?.id ?? "");
         }}
       >
-        <span>Switch</span>
+        <span>{t("switch")}</span>
 
         <svg
           className="h-4 w-4 text-white"
