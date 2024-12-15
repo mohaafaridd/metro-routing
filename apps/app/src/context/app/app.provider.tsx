@@ -4,18 +4,42 @@ import StationsJSON from "./stations.json";
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const stations = useMemo<Station[]>(() => StationsJSON, []);
-  const graph = useMemo<Record<string, Station>>(() => {
-    return stations.reduce(
-      (acc, station) => {
-        acc[station.id] = station;
-        return acc;
-      },
-      {} as Record<string, Station>,
-    );
-  }, [stations]);
 
   const [startingStation, setStartingStation] = useState<Station | null>(null);
   const [endingStation, setEndingStation] = useState<Station | null>(null);
+  const graph = useMemo<Record<string, Station>>(() => {
+    return stations
+      .map((station) => {
+        station.next = station.next.map((next) => {
+          return {
+            ...next,
+            weight: startingStation?.lines.includes(next.line)
+              ? 1
+              : endingStation?.lines.includes(next.line)
+                ? 2
+                : 10,
+          };
+        });
+        station.previous = station.previous.map((previous) => ({
+          ...previous,
+          weight: startingStation?.lines.includes(previous.line)
+            ? 1
+            : endingStation?.lines.includes(previous.line)
+              ? 2
+              : 10,
+        }));
+        return station;
+      })
+      .reduce(
+        (acc, station) => {
+          acc[station.id] = station;
+
+          return acc;
+        },
+        {} as Record<string, Station>,
+      );
+  }, [stations, startingStation, endingStation]);
+
   const [path, setPath] = useState<Station[]>([]);
 
   useEffect(() => {
@@ -23,63 +47,104 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   }, [startingStation, endingStation]);
 
   function findShortestPath(startId: string, endId: string): string[] | null {
-    // Distance map: stores the shortest distance to each station
-    const distances: { [key: string]: number } = {};
-    // Previous station map: tracks the path
-    const previous: { [key: string]: string | null } = {};
-    // Priority queue (min-heap) implemented with an array
-    const queue: { id: string; distance: number }[] = [];
+    const queue: { id: string; line: number; distance: number }[] = [];
+    const distances: { [key: string]: number } = {}; // Key: "stationId_line", Value: Distance
+    const previous: { [key: string]: { id: string; line: number } | null } = {}; // Tracks the path with station-line pairs
 
-    // Initialize distances and queue
+    // Initialize distances
     for (const stationId in graph) {
-      distances[stationId] = Infinity;
-      previous[stationId] = null;
+      for (const line of graph[stationId].lines) {
+        distances[`${stationId}_${line}`] = Infinity;
+        previous[`${stationId}_${line}`] = null;
+      }
     }
 
-    distances[startId] = 0;
-    queue.push({ id: startId, distance: 0 });
+    // Add the starting station to the queue for all its lines
+    const startStation = graph[startId];
+    if (!startStation) return null;
+
+    for (const line of startStation.lines) {
+      const startKey = `${startId}_${line}`;
+      distances[startKey] = 0;
+      queue.push({ id: startId, line, distance: 0 });
+    }
 
     while (queue.length > 0) {
-      // Get the station with the smallest distance
+      // Sort the queue by distance and pick the station with the shortest distance
       queue.sort((a, b) => a.distance - b.distance);
-      const { id: currentId } = queue.shift()!;
+      const {
+        id: currentId,
+        line: currentLine,
+        distance: currentDistance,
+      } = queue.shift()!;
 
-      // If we've reached the target station, reconstruct the path
-      if (currentId === endId) {
-        const path: string[] = [];
-        let current: string | null = endId;
-        while (current) {
-          path.unshift(current);
-          current = previous[current];
-        }
-        return path;
-      }
+      const currentKey = `${currentId}_${currentLine}`;
+      if (currentDistance > distances[currentKey]) continue;
 
       const currentStation = graph[currentId];
-      if (!currentStation) continue; // Skip if station doesn't exist
+      if (!currentStation) continue;
 
-      // Explore neighbors (next and previous connections)
-      const neighbors = [...currentStation.next, ...currentStation.previous];
-      for (const neighborId of neighbors) {
-        const tentativeDistance = distances[currentId] + 1; // Assuming uniform edge weight (e.g., 1 for each connection)
+      // Explore neighbors via "next" and "previous" connections
+      const connections = [...currentStation.next, ...currentStation.previous];
+      for (const connection of connections) {
+        const neighborId = connection.station;
+        const neighborStation = graph[neighborId];
+        if (!neighborStation) continue;
 
-        if (tentativeDistance < distances[neighborId.station]) {
-          distances[neighborId.station] = tentativeDistance;
-          previous[neighborId.station] = currentId;
-          queue.push({ id: neighborId.station, distance: tentativeDistance });
+        const connectionWeight = connection.weight ?? 1; // Default weight is 1 if undefined
+        for (const neighborLine of neighborStation.lines) {
+          const neighborKey = `${neighborId}_${neighborLine}`;
+          const weight =
+            neighborLine === currentLine
+              ? connectionWeight
+              : connectionWeight + 2; // Line switch adds penalty
+          const tentativeDistance = distances[currentKey] + weight;
+
+          if (tentativeDistance < distances[neighborKey]) {
+            distances[neighborKey] = tentativeDistance;
+            previous[neighborKey] = { id: currentId, line: currentLine };
+            queue.push({
+              id: neighborId,
+              line: neighborLine,
+              distance: tentativeDistance,
+            });
+          }
         }
       }
     }
 
-    // If we exit the loop without finding a path, return null
-    return null;
-  }
+    // Find the shortest path to the target station
+    let minDistance = Infinity;
+    let endKey: string | null = null;
+    for (const line of graph[endId].lines) {
+      const key = `${endId}_${line}`;
+      if (distances[key] < minDistance) {
+        minDistance = distances[key];
+        endKey = key;
+      }
+    }
 
+    if (!endKey) return null;
+
+    // Reconstruct the path (no duplication for line switches)
+    const path: string[] = [];
+    let currentKey: string | null = endKey;
+    while (currentKey) {
+      const [stationId] = currentKey.split("_");
+      path.unshift(stationId); // Add station to the path
+      currentKey = previous[currentKey]
+        ? `${previous[currentKey]!.id}_${previous[currentKey]!.line}`
+        : null;
+    }
+
+    return path;
+  }
   const findPath = () => {
     if (!startingStation || !endingStation) return;
 
+    console.log(startingStation.id, endingStation.id);
     const path = findShortestPath(startingStation.id, endingStation.id);
-
+    console.log(path);
     if (!path) return;
 
     setPath(path.map((id) => graph[id]));

@@ -8,6 +8,7 @@
     "ending-station": "Ending Station",
     "find-path": "Find Path",
     "switch-line": "Switch line from {{from}} to {{to}} at {{direction}} direction",
+    "journey-start": "Journey starts at {{direction}} direction",
     "helwan": "Helwan",
     "ain-helwan": "Ain Helwan",
     "helwan-university": "Helwan University",
@@ -189,6 +190,7 @@
     "wadi-el-nil": "وادي النيل",
     "gamaat-el-dowal-al-arabiya": "جامعة الدول العربية",
     "bulaq-el-dakroor": "بولاق الدكرور",
-    "switch-line": "تغيير الخط من {{from}} إلى {{to}} في إتجاه {{direction}}"
+    "switch-line": "تغيير الخط من {{from}} إلى {{to}} في إتجاه {{direction}}",
+    "journey-start": "بداية الرحلة في إتجاه {{direction}}"
   }
 }

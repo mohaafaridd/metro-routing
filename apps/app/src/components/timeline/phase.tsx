@@ -164,6 +164,20 @@ const SwitchLine = ({
     return station.lines.find((line) => nextStation.lines.includes(line));
   }, [nextStation]);
 
+  if (startingStation?.id === station.id) {
+    return (
+      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        {t("journey-start", {
+          direction: t(
+            [...station.next, ...station.previous].find(
+              (s) => s.station === nextStation?.id,
+            )?.direction ?? "",
+          ),
+        })}
+      </p>
+    );
+  }
+
   if (isOnSameLine || !perviousLine || !nextLine) return null;
 
   return (
@@ -171,9 +185,39 @@ const SwitchLine = ({
       {t("switch-line", {
         from: t(`line-${perviousLine}`),
         to: t(`line-${nextLine}`),
-        direction: previousStation?.next[0]?.direction ?? "",
+        direction: t(
+          [...station.next, ...station.previous].find(
+            (s) => s.station === nextStation?.id,
+          )?.direction ?? "",
+        ),
       })}
     </p>
+  );
+};
+
+const Location = ({ station }: { station: Station }) => {
+  return (
+    <a
+      href={`https://www.google.com/maps/@${station.location.latitude},${station.location.longitude},${15}z`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        className="h-4 w-4 text-gray-800 transition-colors duration-300 hover:text-red-500 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fillRule="evenodd"
+          d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </a>
   );
 };
 
@@ -194,9 +238,12 @@ export const Phase = ({
         />
       </span>
 
-      <h3 className="mb-1 ml-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
-        {t(station.id)} <Tag station={station} />
-      </h3>
+      <div className="flex items-center gap-2">
+        <Location station={station} />
+        <h3 className="mb-1 ml-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
+          {t(station.id)} <Tag station={station} />
+        </h3>
+      </div>
       <SwitchLine
         station={station}
         nextStation={nextStation}
