@@ -1,0 +1,6 @@
+node_modules
+.git
+/apps/api/.env.development.local
+/apps/api/dist
+/apps/app/dist
+sites.md

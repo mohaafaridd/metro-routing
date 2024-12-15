@@ -1,0 +1,22 @@
+{
+  "name": "metro-app",
+  "packageManager": "npm@10.8.1",
+  "scripts": {
+    "start": "turbo start",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/**"
+  ],
+  "engines": {
+    "npm": ">=10.8.1",
+    "node": ">=20.16.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.2.3"
+  }
+}
