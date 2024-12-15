@@ -6,7 +6,7 @@
       "longitude": 1
     },
     "lines": [1],
-    "next": ["2"],
+    "next": ["station-2"],
     "previous": []
   },
   {
@@ -16,8 +16,8 @@
       "longitude": 2
     },
     "lines": [1, 2],
-    "next": ["3"],
-    "previous": ["1"]
+    "next": ["station-3"],
+    "previous": ["station-1"]
   },
   {
     "id": "station-3",
@@ -27,6 +27,6 @@
     },
     "lines": [2],
     "next": [],
-    "previous": ["2"]
+    "previous": ["station-2"]
   }
 ]
