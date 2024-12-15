@@ -1,8 +1,13 @@
 {
   "en": {
+    "welcome-message": "Welcome to Egyptian Metro Guide",
+    "line-1": "Line 1",
+    "line-2": "Line 2",
+    "line-3": "Line 3",
     "starting-station": "Starting Station",
     "ending-station": "Ending Station",
     "find-path": "Find Path",
+    "switch-line": "Switch line from {{from}} to {{to}} at {{direction}} direction",
     "helwan": "Helwan",
     "ain-helwan": "Ain Helwan",
     "helwan-university": "Helwan University",
@@ -91,9 +96,13 @@
     "bulaq-el-dakroor": "Bulaq El-Dakroor"
   },
   "ar": {
-    "starting-station": "المحطة البداية",
-    "ending-station": "المحطة النهائية",
+    "line-1": "الخط الأول",
+    "line-2": "الخط الثاني",
+    "line-3": "الخط الثالث",
+    "starting-station": "محطة البداية",
+    "ending-station": "محطة النهاية",
     "find-path": "إيجاد المسار",
+    "welcome-message": "مرحبا بك في تطبيق المترو المصري",
     "helwan": "حلوان",
     "ain-helwan": "عين حلوان",
     "helwan-university": "جامعة حلوان",
@@ -179,6 +188,7 @@
     "el-tawfikeya": "التوفيقية",
     "wadi-el-nil": "وادي النيل",
     "gamaat-el-dowal-al-arabiya": "جامعة الدول العربية",
-    "bulaq-el-dakroor": "بولاق الدكرور"
+    "bulaq-el-dakroor": "بولاق الدكرور",
+    "switch-line": "تغيير الخط من {{from}} إلى {{to}} في إتجاه {{direction}}"
   }
 }

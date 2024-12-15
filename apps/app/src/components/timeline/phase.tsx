@@ -1,0 +1,207 @@
+import { Station, useAppContext } from "@/context/app";
+import { useLanguageContext } from "@/context/language";
+import { useMemo } from "react";
+
+interface PhaseProps {
+  station: Station;
+  nextStation: Station | null;
+  previousStation: Station | null;
+}
+
+const Tag = ({ station }: { station: Station }) => {
+  const { startingStation, endingStation } = useAppContext();
+  const { t } = useLanguageContext();
+  const isStartingStation = useMemo(
+    () => startingStation?.id === station.id,
+    [startingStation, station],
+  );
+  const isEndingStation = useMemo(
+    () => endingStation?.id === station.id,
+    [endingStation, station],
+  );
+
+  if (isStartingStation) {
+    return (
+      <span className="me-2 ms-3 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+        {t("starting-station")}
+      </span>
+    );
+  }
+
+  if (isEndingStation) {
+    return (
+      <span className="me-2 ms-3 rounded bg-indigo-100 px-2.5 py-0.5 text-sm font-medium text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
+        {t("ending-station")}
+      </span>
+    );
+  }
+
+  return null;
+};
+
+const Icon = ({
+  station,
+  nextStation,
+  previousStation,
+}: {
+  station: Station;
+  nextStation: Station | null;
+  previousStation: Station | null;
+}) => {
+  const { startingStation, endingStation } = useAppContext();
+  // previous line has line from
+  const isOnSameLine = useMemo(() => {
+    if (!previousStation || !nextStation) return true;
+    if (startingStation?.id === station.id) return true;
+    if (endingStation?.id === station.id) return true;
+    return previousStation.lines.some((line) =>
+      nextStation.lines.includes(line),
+    );
+  }, [nextStation, previousStation, startingStation, endingStation]);
+
+  if (startingStation?.id === station.id) {
+    return (
+      <svg
+        className="h-6 w-6 text-blue-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fillRule="evenodd"
+          d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (endingStation?.id === station.id) {
+    return (
+      <svg
+        className="h-6 w-6 text-indigo-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fillRule="evenodd"
+          d="M5.575 13.729C4.501 15.033 5.43 17 7.12 17h9.762c1.69 0 2.618-1.967 1.544-3.271l-4.881-5.927a2 2 0 0 0-3.088 0l-4.88 5.927Z"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (isOnSameLine) {
+    return (
+      <svg
+        className="h-2.5 w-2.5 text-blue-800 dark:text-blue-300"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      className="h-6 w-6 text-gray-800 dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.130 0 0 0 12.68-3.15M6 20v-4h4"
+      />
+    </svg>
+  );
+};
+
+const SwitchLine = ({
+  station,
+  nextStation,
+  previousStation,
+}: {
+  station: Station;
+  nextStation: Station | null;
+  previousStation: Station | null;
+}) => {
+  const { startingStation, endingStation } = useAppContext();
+  const { t } = useLanguageContext();
+
+  const isOnSameLine = useMemo(() => {
+    if (!previousStation || !nextStation) return true;
+    if (startingStation?.id === station.id) return true;
+    if (endingStation?.id === station.id) return true;
+    return previousStation.lines.some((line) =>
+      nextStation.lines.includes(line),
+    );
+  }, [nextStation, previousStation, startingStation, endingStation]);
+
+  const perviousLine = useMemo(() => {
+    if (!previousStation) return null;
+    return station.lines.find((line) => previousStation.lines.includes(line));
+  }, [previousStation]);
+
+  const nextLine = useMemo(() => {
+    if (!nextStation) return null;
+    return station.lines.find((line) => nextStation.lines.includes(line));
+  }, [nextStation]);
+
+  if (isOnSameLine || !perviousLine || !nextLine) return null;
+
+  return (
+    <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+      {t("switch-line", {
+        from: t(`line-${perviousLine}`),
+        to: t(`line-${nextLine}`),
+        direction: previousStation?.next[0]?.direction ?? "",
+      })}
+    </p>
+  );
+};
+
+export const Phase = ({
+  station,
+  nextStation,
+  previousStation,
+}: PhaseProps) => {
+  const { t } = useLanguageContext();
+
+  return (
+    <li className="mb-10 ms-6">
+      <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
+        <Icon
+          station={station}
+          nextStation={nextStation}
+          previousStation={previousStation}
+        />
+      </span>
+
+      <h3 className="mb-1 ml-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
+        {t(station.id)} <Tag station={station} />
+      </h3>
+      <SwitchLine
+        station={station}
+        nextStation={nextStation}
+        previousStation={previousStation}
+      />
+    </li>
+  );
+};

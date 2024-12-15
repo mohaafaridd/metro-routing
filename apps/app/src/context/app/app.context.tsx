@@ -1,5 +1,10 @@
 import { createContext } from "react";
 
+interface Connection {
+  station: string;
+  direction: string;
+}
+
 export interface Station {
   id: string;
 
@@ -10,8 +15,8 @@ export interface Station {
 
   lines: number[];
 
-  next: string[];
-  previous: string[];
+  next: Connection[];
+  previous: Connection[];
 }
 
 interface AppContextType {

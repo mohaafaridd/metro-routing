@@ -63,10 +63,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       for (const neighborId of neighbors) {
         const tentativeDistance = distances[currentId] + 1; // Assuming uniform edge weight (e.g., 1 for each connection)
 
-        if (tentativeDistance < distances[neighborId]) {
-          distances[neighborId] = tentativeDistance;
-          previous[neighborId] = currentId;
-          queue.push({ id: neighborId, distance: tentativeDistance });
+        if (tentativeDistance < distances[neighborId.station]) {
+          distances[neighborId.station] = tentativeDistance;
+          previous[neighborId.station] = currentId;
+          queue.push({ id: neighborId.station, distance: tentativeDistance });
         }
       }
     }
