@@ -3,11 +3,6 @@ import { createContext } from "react";
 export interface Station {
   id: string;
 
-  name: {
-    en: string;
-    ar: string;
-  };
-
   location: {
     latitude: number;
     longitude: number;

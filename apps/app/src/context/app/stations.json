@@ -1,10 +1,6 @@
 [
   {
-    "id": "1",
-    "name": {
-      "en": "Station 1",
-      "ar": "المحطة 1"
-    },
+    "id": "station-1",
     "location": {
       "latitude": 1,
       "longitude": 1
@@ -14,11 +10,7 @@
     "previous": []
   },
   {
-    "id": "2",
-    "name": {
-      "en": "Station 2",
-      "ar": "المحطة 2"
-    },
+    "id": "station-2",
     "location": {
       "latitude": 2,
       "longitude": 2
@@ -28,11 +20,7 @@
     "previous": ["1"]
   },
   {
-    "id": "3",
-    "name": {
-      "en": "Station 3",
-      "ar": "المحطة 3"
-    },
+    "id": "station-3",
     "location": {
       "latitude": 3,
       "longitude": 3

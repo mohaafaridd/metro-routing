@@ -1,17 +1,17 @@
-import Select from "react-select";
+import { Form } from "./components/form/form";
+import { LanguageSwitch } from "./components/language/language-switch";
+import { ThemeSwitch } from "./components/theme/theme-switch";
 
 export const Home = () => {
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
   return (
-    <div className="flex h-screen w-screen items-center justify-center">
+    <div className="flex h-screen w-screen flex-col items-center justify-center gap-4 bg-gray-100 dark:bg-gray-900">
       <p className="rounded-none text-3xl font-bold underline">Hello World</p>
 
-      <Select options={options} />
+      <LanguageSwitch />
+
+      <ThemeSwitch />
+
+      <Form />
     </div>
   );
 };

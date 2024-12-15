@@ -1,0 +1,20 @@
+{
+  "en": {
+    "starting-station": "Starting Station",
+    "ending-station": "Ending Station",
+    "find-path": "Find Path",
+
+    "station-1": "Station 1",
+    "station-2": "Station 2",
+    "station-3": "Station 3"
+  },
+  "ar": {
+    "starting-station": "المحطة البداية",
+    "ending-station": "المحطة النهائية",
+    "find-path": "إيجاد المسار",
+
+    "station-1": "المحطة 1",
+    "station-2": "المحطة 2",
+    "station-3": "المحطة 3"
+  }
+}
