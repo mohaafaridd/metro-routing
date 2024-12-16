@@ -44,6 +44,7 @@ export const Form = () => {
           id="starting-station"
           options={startingStationsOptions}
           onChange={(option) => setStartingStation(option?.value ?? "")}
+          placeholder={t("select-starting-station")}
         />
       </div>
 
@@ -59,6 +60,7 @@ export const Form = () => {
           options={endingStationsOptions}
           onChange={(option) => setEndingStation(option?.value ?? "")}
           isDisabled={!startingStation}
+          placeholder={t("select-ending-station")}
         />
       </div>
 

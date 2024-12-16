@@ -4,8 +4,6 @@ import { useMemo } from "react";
 
 interface PhaseProps {
   station: Station;
-  nextStation: Station | null;
-  previousStation: Station | null;
 }
 
 const Tag = ({ station }: { station: Station }) => {
@@ -39,25 +37,8 @@ const Tag = ({ station }: { station: Station }) => {
   return null;
 };
 
-const Icon = ({
-  station,
-  nextStation,
-  previousStation,
-}: {
-  station: Station;
-  nextStation: Station | null;
-  previousStation: Station | null;
-}) => {
+const Icon = ({ station }: { station: Station }) => {
   const { startingStation, endingStation } = useAppContext();
-  // previous line has line from
-  const isOnSameLine = useMemo(() => {
-    if (!previousStation || !nextStation) return true;
-    if (startingStation?.id === station.id) return true;
-    if (endingStation?.id === station.id) return true;
-    return previousStation.lines.some((line) =>
-      nextStation.lines.includes(line),
-    );
-  }, [nextStation, previousStation, startingStation, endingStation]);
 
   if (startingStation?.id === station.id) {
     return (
@@ -99,7 +80,7 @@ const Icon = ({
     );
   }
 
-  if (isOnSameLine) {
+  if (!station.direction) {
     return (
       <svg
         className="h-2.5 w-2.5 text-blue-800 dark:text-blue-300"
@@ -112,6 +93,7 @@ const Icon = ({
       </svg>
     );
   }
+
   return (
     <svg
       className="h-6 w-6 text-gray-800 dark:text-white"
@@ -133,63 +115,28 @@ const Icon = ({
   );
 };
 
-const SwitchLine = ({
-  station,
-  nextStation,
-  previousStation,
-}: {
-  station: Station;
-  nextStation: Station | null;
-  previousStation: Station | null;
-}) => {
+const SwitchLine = ({ station }: { station: Station }) => {
   const { startingStation, endingStation } = useAppContext();
   const { t } = useLanguageContext();
-
-  const isOnSameLine = useMemo(() => {
-    if (!previousStation || !nextStation) return true;
-    if (startingStation?.id === station.id) return true;
-    if (endingStation?.id === station.id) return true;
-    return previousStation.lines.some((line) =>
-      nextStation.lines.includes(line),
-    );
-  }, [nextStation, previousStation, startingStation, endingStation]);
-
-  const perviousLine = useMemo(() => {
-    if (!previousStation) return null;
-    return station.lines.find((line) => previousStation.lines.includes(line));
-  }, [previousStation]);
-
-  const nextLine = useMemo(() => {
-    if (!nextStation) return null;
-    return station.lines.find((line) => nextStation.lines.includes(line));
-  }, [nextStation]);
+  if (!station.direction) return null;
 
   if (startingStation?.id === station.id) {
     return (
       <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-        {t("journey-start", {
-          direction: t(
-            [...station.next, ...station.previous].find(
-              (s) => s.station === nextStation?.id,
-            )?.direction ?? "",
-          ),
-        })}
+        {t("journey-start", { direction: t(station.direction.direction) })}
       </p>
     );
   }
 
-  if (isOnSameLine || !perviousLine || !nextLine) return null;
+  if (endingStation?.id === station.id) {
+    return null;
+  }
 
   return (
     <p className="text-base font-normal text-gray-500 dark:text-gray-400">
       {t("switch-line", {
-        from: t(`line-${perviousLine}`),
-        to: t(`line-${nextLine}`),
-        direction: t(
-          [...station.next, ...station.previous].find(
-            (s) => s.station === nextStation?.id,
-          )?.direction ?? "",
-        ),
+        to: t(`line-${station.direction.to}`),
+        direction: t(station.direction.direction),
       })}
     </p>
   );
@@ -221,21 +168,13 @@ const Location = ({ station }: { station: Station }) => {
   );
 };
 
-export const Phase = ({
-  station,
-  nextStation,
-  previousStation,
-}: PhaseProps) => {
+export const Phase = ({ station }: PhaseProps) => {
   const { t } = useLanguageContext();
 
   return (
     <li className="mb-10 ms-6">
       <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
-        <Icon
-          station={station}
-          nextStation={nextStation}
-          previousStation={previousStation}
-        />
+        <Icon station={station} />
       </span>
 
       <div className="flex items-center gap-2">
@@ -244,11 +183,9 @@ export const Phase = ({
           {t(station.id)} <Tag station={station} />
         </h3>
       </div>
-      <SwitchLine
-        station={station}
-        nextStation={nextStation}
-        previousStation={previousStation}
-      />
+
+      {/* {station.connections.map((connection) => connection.direction)} */}
+      <SwitchLine station={station} />
     </li>
   );
 };

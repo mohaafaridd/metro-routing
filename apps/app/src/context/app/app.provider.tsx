@@ -3,31 +3,24 @@ import { AppContext, Station } from "./app.context";
 import StationsJSON from "./stations.json";
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const stations = useMemo<Station[]>(() => StationsJSON, []);
-
   const [startingStation, setStartingStation] = useState<Station | null>(null);
   const [endingStation, setEndingStation] = useState<Station | null>(null);
+
+  const stations = useMemo<Station[]>(() => StationsJSON, []);
+
   const graph = useMemo<Record<string, Station>>(() => {
     return stations
       .map((station) => {
-        station.next = station.next.map((next) => {
+        station.connections = station.connections.map((connection) => {
           return {
-            ...next,
-            weight: startingStation?.lines.includes(next.line)
+            ...connection,
+            weight: startingStation?.lines.includes(connection.line)
               ? 1
-              : endingStation?.lines.includes(next.line)
+              : endingStation?.lines.includes(connection.line)
                 ? 2
                 : 10,
           };
         });
-        station.previous = station.previous.map((previous) => ({
-          ...previous,
-          weight: startingStation?.lines.includes(previous.line)
-            ? 1
-            : endingStation?.lines.includes(previous.line)
-              ? 2
-              : 10,
-        }));
         return station;
       })
       .reduce(
@@ -38,7 +31,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         },
         {} as Record<string, Station>,
       );
-  }, [stations, startingStation, endingStation]);
+  }, [stations]);
 
   const [path, setPath] = useState<Station[]>([]);
 
@@ -85,8 +78,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       if (!currentStation) continue;
 
       // Explore neighbors via "next" and "previous" connections
-      const connections = [...currentStation.next, ...currentStation.previous];
-      for (const connection of connections) {
+
+      for (const connection of currentStation.connections) {
         const neighborId = connection.station;
         const neighborStation = graph[neighborId];
         if (!neighborStation) continue;
@@ -139,15 +132,68 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
     return path;
   }
+
+  const addSwitchingPoints = (stations: Station[]) => {
+    const path: Record<string, Station> = {};
+
+    // group stations by common direction but in reverse to remove possible duplicates
+    for (const station of stations.reverse()) {
+      if (!station.connections.length) continue;
+      const [connection] = station.connections;
+      const [direction] = connection.direction;
+      path[direction] = station;
+    }
+
+    for (const entry of Object.entries(path)) {
+      const [direction, station] = entry;
+      const [connection] = station.connections;
+      path[direction].direction = {
+        to: connection.line,
+        direction: station.connections[0].direction[0],
+      };
+    }
+
+    stations = stations
+      .map((station) => {
+        const updatedStation = Object.values(path).find(
+          (p) => p.id === station.id,
+        );
+
+        if (!updatedStation) return station;
+
+        return updatedStation;
+      })
+      .reverse();
+
+    return stations;
+  };
+
   const findPath = () => {
     if (!startingStation || !endingStation) return;
 
-    console.log(startingStation.id, endingStation.id);
-    const path = findShortestPath(startingStation.id, endingStation.id);
-    console.log(path);
-    if (!path) return;
+    const shortestPath = findShortestPath(startingStation.id, endingStation.id);
 
-    setPath(path.map((id) => graph[id]));
+    if (!shortestPath) return;
+
+    let stations: Station[] = shortestPath
+      .map((id) => ({ ...graph[id] }))
+      .map((station, index, stations) => {
+        const nextStation = stations[index + 1];
+        if (!nextStation) {
+          station.connections = [];
+          return station;
+        }
+
+        station.connections = station.connections.filter(
+          (connection) => connection.station === nextStation.id,
+        );
+
+        return station;
+      });
+
+    stations = addSwitchingPoints(stations);
+
+    setPath(stations);
   };
 
   return (

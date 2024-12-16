@@ -7,12 +7,7 @@ export const Timeline = () => {
   return (
     <ol className="relative border-s border-gray-200 dark:border-gray-700">
       {path.map((station) => (
-        <Phase
-          key={station.id}
-          station={station}
-          nextStation={path[path.indexOf(station) + 1]}
-          previousStation={path[path.indexOf(station) - 1]}
-        />
+        <Phase key={station.id} station={station} />
       ))}
     </ol>
   );

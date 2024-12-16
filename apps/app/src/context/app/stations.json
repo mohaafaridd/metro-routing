@@ -2,397 +2,366 @@
   {
     "id": "helwan",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.849444,
+      "longitude": 31.334167
+    },
+    "connections": [
       {
         "station": "ain-helwan",
         "direction": ["el-marg"],
         "line": 1
       }
-    ],
-    "previous": [],
-    "location": {
-      "latitude": 29.849444,
-      "longitude": 31.334167
-    }
+    ]
   },
   {
     "id": "ain-helwan",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.862778,
+      "longitude": 31.325
+    },
+    "connections": [
       {
         "station": "helwan-university",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "helwan",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.862778,
-      "longitude": 31.325
-    }
+    ]
   },
   {
     "id": "helwan-university",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.868889,
+      "longitude": 31.320278
+    },
+    "connections": [
       {
         "station": "wadi-hof",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "ain-helwan",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.868889,
-      "longitude": 31.320278
-    }
+    ]
   },
   {
     "id": "wadi-hof",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.879444,
+      "longitude": 31.313333
+    },
+    "connections": [
       {
         "station": "hadayek-helwan",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "helwan-university",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.879444,
-      "longitude": 31.313333
-    }
+    ]
   },
   {
     "id": "hadayek-helwan",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.897222,
+      "longitude": 31.304167
+    },
+    "connections": [
       {
         "station": "el-maasara",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "wadi-hof",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.897222,
-      "longitude": 31.304167
-    }
+    ]
   },
   {
     "id": "el-maasara",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.906111,
+      "longitude": 31.299722
+    },
+    "connections": [
       {
         "station": "tora-el-asmant",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "hadayek-helwan",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.906111,
-      "longitude": 31.299722
-    }
+    ]
   },
   {
     "id": "tora-el-asmant",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.925833,
+      "longitude": 31.287778
+    },
+    "connections": [
       {
         "station": "kozzika",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-maasara",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.925833,
-      "longitude": 31.287778
-    }
+    ]
   },
   {
     "id": "kozzika",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.936111,
+      "longitude": 31.281667
+    },
+    "connections": [
       {
         "station": "tora-el-balad",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "tora-el-asmant",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.936111,
-      "longitude": 31.281667
-    }
+    ]
   },
   {
     "id": "tora-el-balad",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.946389,
+      "longitude": 31.273611
+    },
+    "connections": [
       {
         "station": "sakanat-el-maadi",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "kozzika",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.946389,
-      "longitude": 31.273611
-    }
+    ]
   },
   {
     "id": "sakanat-el-maadi",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.952778,
+      "longitude": 31.263333
+    },
+    "connections": [
       {
         "station": "maadi",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "tora-el-balad",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.952778,
-      "longitude": 31.263333
-    }
+    ]
   },
   {
     "id": "maadi",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.959722,
+      "longitude": 31.258056
+    },
+    "connections": [
       {
         "station": "hadayek-el-maadi",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "sakanat-el-maadi",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.959722,
-      "longitude": 31.258056
-    }
+    ]
   },
   {
     "id": "hadayek-el-maadi",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.97,
+      "longitude": 31.250556
+    },
+    "connections": [
       {
         "station": "dar-el-salam",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "maadi",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.97,
-      "longitude": 31.250556
-    }
+    ]
   },
   {
     "id": "dar-el-salam",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.981944,
+      "longitude": 31.242222
+    },
+    "connections": [
       {
         "station": "el-zahraa",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "hadayek-el-maadi",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.981944,
-      "longitude": 31.242222
-    }
+    ]
   },
   {
     "id": "el-zahraa",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 29.995278,
+      "longitude": 31.231667
+    },
+    "connections": [
       {
         "station": "mar-girgis",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "dar-el-salam",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 29.995278,
-      "longitude": 31.231667
-    }
+    ]
   },
   {
     "id": "mar-girgis",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.005833,
+      "longitude": 31.229444
+    },
+    "connections": [
       {
         "station": "el-malek-el-saleh",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-zahraa",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.005833,
-      "longitude": 31.229444
-    }
+    ]
   },
   {
     "id": "el-malek-el-saleh",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.016944,
+      "longitude": 31.230833
+    },
+    "connections": [
       {
         "station": "al-sayeda-zeinab",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "mar-girgis",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.016944,
-      "longitude": 31.230833
-    }
+    ]
   },
   {
     "id": "al-sayeda-zeinab",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.029167,
+      "longitude": 31.235278
+    },
+    "connections": [
       {
         "station": "saad-zaghloul",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-malek-el-saleh",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.029167,
-      "longitude": 31.235278
-    }
+    ]
   },
   {
     "id": "saad-zaghloul",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.036667,
+      "longitude": 31.238056
+    },
+    "connections": [
       {
         "station": "sadat",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "al-sayeda-zeinab",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.036667,
-      "longitude": 31.238056
-    }
+    ]
   },
   {
     "id": "nasser",
     "lines": [1, 3],
-    "next": [
+    "location": {
+      "latitude": 30.053611,
+      "longitude": 31.238889
+    },
+    "connections": [
       {
         "station": "orabi",
         "direction": ["el-marg"],
@@ -402,9 +371,7 @@
         "station": "maspero",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "sadat",
         "direction": ["helwan"],
@@ -415,38 +382,36 @@
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.053611,
-      "longitude": 31.238889
-    }
+    ]
   },
   {
     "id": "orabi",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.0575,
+      "longitude": 31.2425
+    },
+    "connections": [
       {
         "station": "al-shohadaa",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "nasser",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.0575,
-      "longitude": 31.2425
-    }
+    ]
   },
   {
     "id": "al-shohadaa",
     "lines": [1, 2],
-    "next": [
+    "location": {
+      "latitude": 30.061944,
+      "longitude": 31.246111
+    },
+    "connections": [
       {
         "station": "ghamra",
         "direction": ["el-marg"],
@@ -456,9 +421,7 @@
         "station": "masarra",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "orabi",
         "direction": ["helwan"],
@@ -469,400 +432,366 @@
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.061944,
-      "longitude": 31.246111
-    }
+    ]
   },
   {
     "id": "ghamra",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.068889,
+      "longitude": 31.264722
+    },
+    "connections": [
       {
         "station": "el-demerdash",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "al-shohadaa",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.068889,
-      "longitude": 31.264722
-    }
+    ]
   },
   {
     "id": "el-demerdash",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.077222,
+      "longitude": 31.277778
+    },
+    "connections": [
       {
         "station": "manshiet-el-sadr",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "ghamra",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.077222,
-      "longitude": 31.277778
-    }
+    ]
   },
   {
     "id": "manshiet-el-sadr",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.082222,
+      "longitude": 31.287778
+    },
+    "connections": [
       {
         "station": "kobri-el-qobba",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-demerdash",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.082222,
-      "longitude": 31.287778
-    }
+    ]
   },
   {
     "id": "kobri-el-qobba",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.086944,
+      "longitude": 31.293889
+    },
+    "connections": [
       {
         "station": "hammamat-el-qobba",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "manshiet-el-sadr",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.086944,
-      "longitude": 31.293889
-    }
+    ]
   },
   {
     "id": "hammamat-el-qobba",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.090278,
+      "longitude": 31.298056
+    },
+    "connections": [
       {
         "station": "saray-el-qobba",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "kobri-el-qobba",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.090278,
-      "longitude": 31.298056
-    }
+    ]
   },
   {
     "id": "saray-el-qobba",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.098056,
+      "longitude": 31.304722
+    },
+    "connections": [
       {
         "station": "hadayeq-el-zaitoun",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "hammamat-el-qobba",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.098056,
-      "longitude": 31.304722
-    }
+    ]
   },
   {
     "id": "hadayeq-el-zaitoun",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.105278,
+      "longitude": 31.31
+    },
+    "connections": [
       {
         "station": "helmeyet-el-zaitoun",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "saray-el-qobba",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.105278,
-      "longitude": 31.31
-    }
+    ]
   },
   {
     "id": "helmeyet-el-zaitoun",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.114444,
+      "longitude": 31.313889
+    },
+    "connections": [
       {
         "station": "el-matareyya",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "hadayeq-el-zaitoun",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.114444,
-      "longitude": 31.313889
-    }
+    ]
   },
   {
     "id": "el-matareyya",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.121389,
+      "longitude": 31.313889
+    },
+    "connections": [
       {
         "station": "ain-shams",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "helmeyet-el-zaitoun",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.121389,
-      "longitude": 31.313889
-    }
+    ]
   },
   {
     "id": "ain-shams",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.131111,
+      "longitude": 31.319167
+    },
+    "connections": [
       {
         "station": "ezbet-el-nakhl",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-matareyya",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.131111,
-      "longitude": 31.319167
-    }
+    ]
   },
   {
     "id": "ezbet-el-nakhl",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.139167,
+      "longitude": 31.324444
+    },
+    "connections": [
       {
         "station": "el-marg",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "ain-shams",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.139167,
-      "longitude": 31.324444
-    }
+    ]
   },
   {
     "id": "el-marg",
     "lines": [1],
-    "next": [
+    "location": {
+      "latitude": 30.152222,
+      "longitude": 31.335556
+    },
+    "connections": [
       {
         "station": "new-el-marg",
-        "direction": ["new-el-marg"],
+        "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "ezbet-el-nakhl",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.152222,
-      "longitude": 31.335556
-    }
+    ]
   },
   {
     "id": "new-el-marg",
     "lines": [1],
-    "next": [],
-    "previous": [
+    "location": {
+      "latitude": 30.163333,
+      "longitude": 31.338333
+    },
+    "connections": [
       {
         "station": "el-marg",
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.163333,
-      "longitude": 31.338333
-    }
+    ]
   },
   {
     "id": "el-mounib",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 29.981389,
+      "longitude": 31.2125
+    },
+    "connections": [
       {
         "station": "sakiat-mekky",
         "direction": ["shubra-el-kheima"],
         "line": 2
       }
-    ],
-    "previous": [],
-    "location": {
-      "latitude": 29.981389,
-      "longitude": 31.2125
-    }
+    ]
   },
   {
     "id": "sakiat-mekky",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 29.995556,
+      "longitude": 31.208611
+    },
+    "connections": [
       {
         "station": "omm-el-masryeen",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-mounib",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 29.995556,
-      "longitude": 31.208611
-    }
+    ]
   },
   {
     "id": "omm-el-masryeen",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.005278,
+      "longitude": 31.208056
+    },
+    "connections": [
       {
         "station": "el-giza",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "sakiat-mekky",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.005278,
-      "longitude": 31.208056
-    }
+    ]
   },
   {
     "id": "el-giza",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.010556,
+      "longitude": 31.206944
+    },
+    "connections": [
       {
         "station": "faisal",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "omm-el-masryeen",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.010556,
-      "longitude": 31.206944
-    }
+    ]
   },
   {
     "id": "faisal",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.017222,
+      "longitude": 31.203889
+    },
+    "connections": [
       {
         "station": "cairo-university",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-giza",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.017222,
-      "longitude": 31.203889
-    }
+    ]
   },
   {
     "id": "cairo-university",
     "lines": [2, 3],
-    "next": [
+    "location": {
+      "latitude": 30.026111,
+      "longitude": 31.201111
+    },
+    "connections": [
       {
         "station": "el-bohoth",
         "direction": ["shubra-el-kheima"],
@@ -872,90 +801,82 @@
         "station": "bulaq-el-dakroor",
         "direction": ["adly-mansour"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "faisal",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.026111,
-      "longitude": 31.201111
-    }
+    ]
   },
   {
     "id": "el-bohoth",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.035833,
+      "longitude": 31.200278
+    },
+    "connections": [
       {
         "station": "dokki",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "cairo-university",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.035833,
-      "longitude": 31.200278
-    }
+    ]
   },
   {
     "id": "dokki",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.038333,
+      "longitude": 31.2125
+    },
+    "connections": [
       {
         "station": "opera",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-bohoth",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.038333,
-      "longitude": 31.2125
-    }
+    ]
   },
   {
     "id": "opera",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.041944,
+      "longitude": 31.225278
+    },
+    "connections": [
       {
         "station": "sadat",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "dokki",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.041944,
-      "longitude": 31.225278
-    }
+    ]
   },
   {
     "id": "sadat",
     "lines": [1, 2],
-    "next": [
+    "location": {
+      "latitude": 30.044444,
+      "longitude": 31.235556
+    },
+    "connections": [
       {
         "station": "mohamed-naguib",
         "direction": ["shubra-el-kheima"],
@@ -965,9 +886,7 @@
         "station": "nasser",
         "direction": ["el-marg"],
         "line": 1
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "opera",
         "direction": ["el-mounib"],
@@ -978,38 +897,36 @@
         "direction": ["helwan"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.044444,
-      "longitude": 31.235556
-    }
+    ]
   },
   {
     "id": "mohamed-naguib",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.045278,
+      "longitude": 31.244167
+    },
+    "connections": [
       {
         "station": "attaba",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "sadat",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.045278,
-      "longitude": 31.244167
-    }
+    ]
   },
   {
     "id": "attaba",
     "lines": [2, 3],
-    "next": [
+    "location": {
+      "latitude": 30.0525,
+      "longitude": 31.246944
+    },
+    "connections": [
       {
         "station": "al-shohadaa",
         "direction": ["shubra-el-kheima"],
@@ -1019,9 +936,7 @@
         "station": "nasser",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "mohamed-naguib",
         "direction": ["el-mounib"],
@@ -1032,598 +947,546 @@
         "direction": ["adly-mansour"],
         "line": 1
       }
-    ],
-    "location": {
-      "latitude": 30.0525,
-      "longitude": 31.246944
-    }
+    ]
   },
   {
     "id": "masarra",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.071111,
+      "longitude": 31.245
+    },
+    "connections": [
       {
         "station": "road-el-farag",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "al-shohadaa",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.071111,
-      "longitude": 31.245
-    }
+    ]
   },
   {
     "id": "road-el-farag",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.080556,
+      "longitude": 31.245556
+    },
+    "connections": [
       {
         "station": "st-teresa",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "masarra",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.080556,
-      "longitude": 31.245556
-    }
+    ]
   },
   {
     "id": "st-teresa",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.088333,
+      "longitude": 31.245556
+    },
+    "connections": [
       {
         "station": "khalafawy",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "road-el-farag",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.088333,
-      "longitude": 31.245556
-    }
+    ]
   },
   {
     "id": "khalafawy",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.098056,
+      "longitude": 31.245278
+    },
+    "connections": [
       {
         "station": "mezallat",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "st-teresa",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.098056,
-      "longitude": 31.245278
-    }
+    ]
   },
   {
     "id": "mezallat",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.105,
+      "longitude": 31.246667
+    },
+    "connections": [
       {
         "station": "kolleyyet-el-zeraa",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "khalafawy",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.105,
-      "longitude": 31.246667
-    }
+    ]
   },
   {
     "id": "kolleyyet-el-zeraa",
     "lines": [2],
-    "next": [
+    "location": {
+      "latitude": 30.113889,
+      "longitude": 31.248611
+    },
+    "connections": [
       {
         "station": "shubra-el-kheima",
         "direction": ["shubra-el-kheima"],
         "line": 2
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "mezallat",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.113889,
-      "longitude": 31.248611
-    }
+    ]
   },
   {
     "id": "shubra-el-kheima",
     "lines": [2],
-    "next": [],
-    "previous": [
+    "location": {
+      "latitude": 30.1225,
+      "longitude": 31.244722
+    },
+    "connections": [
       {
         "station": "kolleyyet-el-zeraa",
         "direction": ["el-mounib"],
         "line": 2
       }
-    ],
-    "location": {
-      "latitude": 30.1225,
-      "longitude": 31.244722
-    }
+    ]
   },
   {
     "id": "adly-mansour",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.1475,
+      "longitude": 31.421389
+    },
+    "connections": [
       {
         "station": "el-haykestep",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
       }
-    ],
-    "previous": [],
-    "location": {
-      "latitude": 30.1475,
-      "longitude": 31.421389
-    }
+    ]
   },
   {
     "id": "el-haykestep",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.144444,
+      "longitude": 31.404722
+    },
+    "connections": [
       {
         "station": "omar-ibn-el-khattab",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "adly-mansour",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.144444,
-      "longitude": 31.404722
-    }
+    ]
   },
   {
     "id": "omar-ibn-el-khattab",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.140556,
+      "longitude": 31.394167
+    },
+    "connections": [
       {
         "station": "qobaa",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-haykestep",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.140556,
-      "longitude": 31.394167
-    }
+    ]
   },
   {
     "id": "qobaa",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.134722,
+      "longitude": 31.383889
+    },
+    "connections": [
       {
         "station": "hesham-barakat",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "omar-ibn-el-khattab",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.134722,
-      "longitude": 31.383889
-    }
+    ]
   },
   {
     "id": "hesham-barakat",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.131111,
+      "longitude": 31.372778
+    },
+    "connections": [
       {
         "station": "el-nozha",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "qobaa",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.131111,
-      "longitude": 31.372778
-    }
+    ]
   },
   {
     "id": "el-nozha",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.128333,
+      "longitude": 31.36
+    },
+    "connections": [
       {
         "station": "nadi-el-shams",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "hesham-barakat",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.128333,
-      "longitude": 31.36
-    }
+    ]
   },
   {
     "id": "nadi-el-shams",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.122222,
+      "longitude": 31.343889
+    },
+    "connections": [
       {
         "station": "alf-maskan",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-nozha",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.122222,
-      "longitude": 31.343889
-    }
+    ]
   },
   {
     "id": "alf-maskan",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.118056,
+      "longitude": 31.339722
+    },
+    "connections": [
       {
         "station": "heliopolis-square",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "nadi-el-shams",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.118056,
-      "longitude": 31.339722
-    }
+    ]
   },
   {
     "id": "heliopolis-square",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.108056,
+      "longitude": 31.338056
+    },
+    "connections": [
       {
         "station": "haroun",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "alf-maskan",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.108056,
-      "longitude": 31.338056
-    }
+    ]
   },
   {
     "id": "haroun",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.101111,
+      "longitude": 31.332778
+    },
+    "connections": [
       {
         "station": "al-ahram",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "heliopolis-square",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.101111,
-      "longitude": 31.332778
-    }
+    ]
   },
   {
     "id": "al-ahram",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.091389,
+      "longitude": 31.326389
+    },
+    "connections": [
       {
         "station": "koleyet-el-banat",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "haroun",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.091389,
-      "longitude": 31.326389
-    }
+    ]
   },
   {
     "id": "koleyet-el-banat",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.083611,
+      "longitude": 31.328889
+    },
+    "connections": [
       {
         "station": "stadium",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "al-ahram",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.083611,
-      "longitude": 31.328889
-    }
+    ]
   },
   {
     "id": "stadium",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.073056,
+      "longitude": 31.3175
+    },
+    "connections": [
       {
         "station": "fair-zone",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "koleyet-el-banat",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.073056,
-      "longitude": 31.3175
-    }
+    ]
   },
   {
     "id": "fair-zone",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.073333,
+      "longitude": 31.301111
+    },
+    "connections": [
       {
         "station": "abbassia",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "stadium",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.073333,
-      "longitude": 31.301111
-    }
+    ]
   },
   {
     "id": "abbassia",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.069722,
+      "longitude": 31.280833
+    },
+    "connections": [
       {
         "station": "abdou-pasha",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "fair-zone",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.069722,
-      "longitude": 31.280833
-    }
+    ]
   },
   {
     "id": "abdou-pasha",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.064722,
+      "longitude": 31.274722
+    },
+    "connections": [
       {
         "station": "el-geish",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "abbassia",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.064722,
-      "longitude": 31.274722
-    }
+    ]
   },
   {
     "id": "el-geish",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.0625,
+      "longitude": 31.266944
+    },
+    "connections": [
       {
         "station": "bab-el-shaaria",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "abdou-pasha",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.0625,
-      "longitude": 31.266944
-    }
+    ]
   },
   {
     "id": "bab-el-shaaria",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.053889,
+      "longitude": 31.256111
+    },
+    "connections": [
       {
         "station": "attaba",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-geish",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.053889,
-      "longitude": 31.256111
-    }
+    ]
   },
   {
     "id": "maspero",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.055556,
+      "longitude": 31.232222
+    },
+    "connections": [
       {
         "station": "safaa-hegazy",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "nasser",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.055556,
-      "longitude": 31.232222
-    }
+    ]
   },
   {
     "id": "safaa-hegazy",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.0625,
+      "longitude": 31.2225
+    },
+    "connections": [
       {
         "station": "kit-kat",
         "direction": ["cairo-university", "rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "maspero",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.0625,
-      "longitude": 31.2225
-    }
+    ]
   },
   {
     "id": "kit-kat",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.066667,
+      "longitude": 31.213056
+    },
+    "connections": [
       {
         "station": "sudan-street",
         "direction": ["rod-al-farag-axis"],
@@ -1633,232 +1496,207 @@
         "station": "el-tawfikeya",
         "direction": ["cairo-university"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "safaa-hegazy",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.066667,
-      "longitude": 31.213056
-    }
+    ]
   },
   {
     "id": "sudan-street",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.069722,
+      "longitude": 31.205278
+    },
+    "connections": [
       {
         "station": "imbaba",
         "direction": ["rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "kit-kat",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.069722,
-      "longitude": 31.205278
-    }
+    ]
   },
   {
     "id": "imbaba",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.075833,
+      "longitude": 31.2075
+    },
+    "connections": [
       {
         "station": "el-bohy",
         "direction": ["rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "sudan-street",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.075833,
-      "longitude": 31.2075
-    }
+    ]
   },
   {
     "id": "el-bohy",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.082222,
+      "longitude": 31.210556
+    },
+    "connections": [
       {
         "station": "al-qawmeya-al-arabiya",
         "direction": ["rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "imbaba",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.082222,
-      "longitude": 31.210556
-    }
+    ]
   },
   {
     "id": "al-qawmeya-al-arabiya",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.093333,
+      "longitude": 31.208889
+    },
+    "connections": [
       {
         "station": "ring-road",
         "direction": ["rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-bohy",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.093333,
-      "longitude": 31.208889
-    }
+    ]
   },
   {
     "id": "ring-road",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.096389,
+      "longitude": 31.199722
+    },
+    "connections": [
       {
         "station": "rod-al-farag-axis",
         "direction": ["rod-al-farag-axis"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "al-qawmeya-al-arabiya",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.096389,
-      "longitude": 31.199722
-    }
+    ]
   },
   {
     "id": "rod-al-farag-axis",
     "lines": [3],
-    "next": [],
-    "previous": [
+    "location": {
+      "latitude": 30.101944,
+      "longitude": 31.184167
+    },
+    "connections": [
       {
         "station": "ring-road",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.101944,
-      "longitude": 31.184167
-    }
+    ]
   },
   {
     "id": "el-tawfikeya",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.065278,
+      "longitude": 31.2025
+    },
+    "connections": [
       {
         "station": "wadi-el-nil",
         "direction": ["cairo-university"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "kit-kat",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.065278,
-      "longitude": 31.2025
-    }
+    ]
   },
   {
     "id": "wadi-el-nil",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.058333,
+      "longitude": 31.201111
+    },
+    "connections": [
       {
         "station": "gamaat-el-dowal-al-arabiya",
         "direction": ["cairo-university"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "el-tawfikeya",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.058333,
-      "longitude": 31.201111
-    }
+    ]
   },
   {
     "id": "gamaat-el-dowal-al-arabiya",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.050833,
+      "longitude": 31.199722
+    },
+    "connections": [
       {
         "station": "bulaq-el-dakroor",
         "direction": ["cairo-university"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "wadi-el-nil",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.050833,
-      "longitude": 31.199722
-    }
+    ]
   },
   {
     "id": "bulaq-el-dakroor",
     "lines": [3],
-    "next": [
+    "location": {
+      "latitude": 30.036111,
+      "longitude": 31.196389
+    },
+    "connections": [
       {
         "station": "cairo-university",
         "direction": ["cairo-university"],
         "line": 3
-      }
-    ],
-    "previous": [
+      },
       {
         "station": "gamaat-el-dowal-al-arabiya",
         "direction": ["adly-mansour"],
         "line": 3
       }
-    ],
-    "location": {
-      "latitude": 30.036111,
-      "longitude": 31.196389
-    }
+    ]
   }
 ]

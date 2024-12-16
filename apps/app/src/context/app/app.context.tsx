@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 interface Connection {
   station: string;
-  direction: string;
+  direction: string[];
   weight?: number;
   line: number;
 }
@@ -17,8 +17,12 @@ export interface Station {
 
   lines: number[];
 
-  next: Connection[];
-  previous: Connection[];
+  connections: Connection[];
+
+  direction?: {
+    to: number;
+    direction: string;
+  };
 }
 
 interface AppContextType {
