@@ -45,6 +45,8 @@ export const Form = () => {
           options={startingStationsOptions}
           onChange={(option) => setStartingStation(option?.value ?? "")}
           placeholder={t("select-starting-station")}
+          className="my-react-select-container"
+          classNamePrefix="my-react-select"
         />
       </div>
 
@@ -61,6 +63,8 @@ export const Form = () => {
           onChange={(option) => setEndingStation(option?.value ?? "")}
           isDisabled={!startingStation}
           placeholder={t("select-ending-station")}
+          className="my-react-select-container"
+          classNamePrefix="my-react-select"
         />
       </div>
 
