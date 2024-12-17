@@ -48,6 +48,6 @@ export const AppContext = createContext<AppContextType>({
   endingStation: null,
   setEndingStation: () => {},
   path: [],
-  strategy: Strategy.STANDARD,
+  strategy: Strategy.SHORTEST,
   setStrategy: () => {},
 });

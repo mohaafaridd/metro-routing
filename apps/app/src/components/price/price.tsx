@@ -1,6 +1,6 @@
 import { useAppContext } from "@/context/app";
 import { useLanguageContext } from "@/context/language";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 export const Price = () => {
   const { path } = useAppContext();
