@@ -106,7 +106,8 @@
     "ticket-8": "You have to pay eight EGP",
     "made-by": "Made by",
     "mohammad-farid": "Mohammad Farid",
-    "empty-path": "Please select starting and ending stations"
+    "empty-path": "Please select starting and ending stations",
+    "station": "Station"
   },
   "ar": {
     "line-1": "الخط الأول",
@@ -215,6 +216,7 @@
     "ticket-8": "عليك دفع ثمانية جنيهات",
     "made-by": "صنع بواسطة",
     "mohammad-farid": "محمد فريد",
-    "empty-path": "يرجى اختيار محطة البداية والنهاية"
+    "empty-path": "يرجى اختيار محطة البداية والنهاية",
+    "station": "محطة"
   }
 }

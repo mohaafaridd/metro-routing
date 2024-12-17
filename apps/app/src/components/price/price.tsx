@@ -26,12 +26,15 @@ export const Price = () => {
     }).format(price);
   }, [price, locale]);
 
+  const stationCount = useMemo(() => {
+    return new Intl.NumberFormat(locale).format(path.length);
+  }, [path.length, locale]);
+
   if (path.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-4 rounded-lg bg-gray-200 p-2 text-center text-xl font-bold text-gray-800 dark:bg-gray-800 dark:text-white">
-      {priceText}
-
+      {priceText} - {stationCount} {t("station")}
       <p className="text-sm text-gray-500 dark:text-gray-400">
         {t(`ticket-${price}`)}
       </p>

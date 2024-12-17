@@ -5,25 +5,38 @@ import StationsJSON from "./stations.json";
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [startingStation, setStartingStation] = useState<Station | null>(null);
   const [endingStation, setEndingStation] = useState<Station | null>(null);
-  const [strategy, setStrategy] = useState<Strategy>(Strategy.SHORTEST);
+  const [strategy, setStrategy] = useState<Strategy>(Strategy.LEAST_SWITCHING);
 
   const stations = useMemo<Station[]>(() => StationsJSON, []);
 
   const graph = useMemo<Record<string, Station>>(() => {
-    const SHORTEST_WEIGHT = 10;
-    const LEAST_SWITCHING_WEIGHT = 1;
+    const SHORTEST_WEIGHT = 1;
+    const LEAST_SWITCHING_WEIGHT = 10;
     return stations
       .map((station) => {
         station.connections = station.connections.map((connection) => {
+          let weight = 0;
+
+          const onSameStartingLine = startingStation?.lines.includes(
+            connection.line,
+          );
+
+          const onEndingLine = endingStation?.lines.includes(connection.line);
+
+          if (onSameStartingLine) {
+            weight = 1;
+          } else if (onEndingLine) {
+            weight =
+              strategy === Strategy.SHORTEST
+                ? SHORTEST_WEIGHT
+                : LEAST_SWITCHING_WEIGHT;
+          } else {
+            weight = 20;
+          }
+
           return {
             ...connection,
-            weight: startingStation?.lines.includes(connection.line)
-              ? 1
-              : endingStation?.lines.includes(connection.line)
-                ? strategy === Strategy.SHORTEST
-                  ? SHORTEST_WEIGHT
-                  : LEAST_SWITCHING_WEIGHT
-                : 10,
+            weight,
           };
         });
         return station;

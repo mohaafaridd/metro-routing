@@ -149,7 +149,7 @@ const Location = ({ station }: { station: Station }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="me-2 inline-flex items-center rounded border bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 transition-colors duration-150 hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">
+      <span className="me-2 inline-flex items-center rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 transition-colors duration-150 hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">
         <i className="fa-solid fa-location-dot me-1.5 h-2.5 w-2.5"></i> Location
       </span>
     </a>

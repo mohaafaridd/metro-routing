@@ -48,6 +48,6 @@ export const AppContext = createContext<AppContextType>({
   endingStation: null,
   setEndingStation: () => {},
   path: [],
-  strategy: Strategy.SHORTEST,
+  strategy: Strategy.LEAST_SWITCHING,
   setStrategy: () => {},
 });
