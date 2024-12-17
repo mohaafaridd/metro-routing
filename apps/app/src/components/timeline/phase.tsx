@@ -149,6 +149,18 @@ const Location = ({ station }: { station: Station }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
+      <span className="me-2 inline-flex items-center rounded border bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 transition-colors duration-150 hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">
+        <i className="fa-solid fa-location-dot me-1.5 h-2.5 w-2.5"></i> Location
+      </span>
+    </a>
+  );
+
+  return (
+    <a
+      href={`https://www.google.com/maps/@${station.location.latitude},${station.location.longitude},${15}z`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <svg
         className="h-4 w-4 text-gray-800 transition-colors duration-300 hover:text-red-500 dark:text-white"
         aria-hidden="true"
@@ -178,13 +190,12 @@ export const Phase = ({ station }: PhaseProps) => {
       </span>
 
       <div className="flex items-center gap-2">
-        <Location station={station} />
-        <h3 className="mb-1 ml-2 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
-          {t(station.id)} <Tag station={station} />
+        <h3 className="mb-1 ml-2 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+          {t(station.id)}
+          <Tag station={station} /> <Location station={station} />
         </h3>
       </div>
 
-      {/* {station.connections.map((connection) => connection.direction)} */}
       <SwitchLine station={station} />
     </li>
   );

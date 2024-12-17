@@ -1,3 +1,5 @@
+import { Credits } from "./components/credits/credits";
+import { EmptyPath } from "./components/empty-path/empty-path";
 import { Form } from "./components/form/form";
 import { LanguageSwitch } from "./components/language/language-switch";
 import { Price } from "./components/price/price";
@@ -20,12 +22,15 @@ export const Home = () => {
         {t("welcome-message")}
       </p>
 
-      <div className="flex w-full flex-col gap-9 lg:w-1/4">
+      <div className="flex w-full grow flex-col gap-9 lg:w-1/4">
         <Form />
         <StrategySwitch />
         <Price />
         <Timeline />
+        <EmptyPath />
       </div>
+
+      <Credits />
     </div>
   );
 };

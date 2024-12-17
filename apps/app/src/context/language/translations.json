@@ -100,10 +100,13 @@
     "switch": "Switch",
     "shortest": "Shortest",
     "least-switching": "Least Switching",
-    "ticket-20": "You have to pay 20 EGP",
-    "ticket-12": "You have to pay 12 EGP",
-    "ticket-10": "You have to pay 10 EGP",
-    "ticket-8": "You have to pay 8 EGP"
+    "ticket-20": "You have to pay twenty EGP",
+    "ticket-12": "You have to pay twelve EGP",
+    "ticket-10": "You have to pay ten EGP",
+    "ticket-8": "You have to pay eight EGP",
+    "made-by": "Made by",
+    "mohammad-farid": "Mohammad Farid",
+    "empty-path": "Please select starting and ending stations"
   },
   "ar": {
     "line-1": "الخط الأول",
@@ -209,6 +212,9 @@
     "ticket-20": "عليك دفع عشرين جنيهًا",
     "ticket-12": "عليك دفع اثني عشر جنيهًا",
     "ticket-10": "عليك دفع عشرة جنيهات",
-    "ticket-8": "عليك دفع ثمانية جنيهات"
+    "ticket-8": "عليك دفع ثمانية جنيهات",
+    "made-by": "صنع بواسطة",
+    "mohammad-farid": "محمد فريد",
+    "empty-path": "يرجى اختيار محطة البداية والنهاية"
   }
 }
