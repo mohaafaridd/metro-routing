@@ -10,6 +10,8 @@ services:
     restart: always
     ports:
       - '4230:3000'
+    networks:
+      - personal-network
 
 networks:
   personal-network:
