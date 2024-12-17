@@ -7,6 +7,7 @@ export const StrategySwitch = () => {
   const { t } = useLanguageContext();
 
   if (path.length === 0) return null;
+
   return (
     <div className="inline-flex w-full rounded-md" role="group">
       <button

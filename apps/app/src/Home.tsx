@@ -12,7 +12,7 @@ export const Home = () => {
   const { t } = useLanguageContext();
 
   return (
-    <div className="flex min-h-screen w-screen flex-col items-center gap-9 bg-gray-100 p-4 dark:bg-gray-900">
+    <div className="flex min-h-screen w-screen flex-col items-center gap-5 bg-gray-100 p-4 dark:bg-gray-900">
       <div className="toolbar flex items-center justify-center gap-2">
         <ThemeSwitch />
         <LanguageSwitch />
@@ -22,7 +22,7 @@ export const Home = () => {
         {t("welcome-message")}
       </p>
 
-      <div className="flex w-full grow flex-col gap-9 lg:w-1/4">
+      <div className="flex w-full grow flex-col gap-5 lg:w-2/3 xl:w-1/4">
         <Form />
         <StrategySwitch />
         <Price />

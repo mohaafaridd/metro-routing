@@ -10,8 +10,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const stations = useMemo<Station[]>(() => StationsJSON, []);
 
   const graph = useMemo<Record<string, Station>>(() => {
-    const SHORTEST_WEIGHT = 1;
-    const LEAST_SWITCHING_WEIGHT = 10;
+    const SHORTEST_WEIGHT = 10;
+    const LEAST_SWITCHING_WEIGHT = 5;
     return stations
       .map((station) => {
         station.connections = station.connections.map((connection) => {
@@ -31,7 +31,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
                 ? SHORTEST_WEIGHT
                 : LEAST_SWITCHING_WEIGHT;
           } else {
-            weight = 20;
+            weight = 15;
           }
 
           return {
@@ -49,13 +49,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         },
         {} as Record<string, Station>,
       );
-  }, [stations, strategy]);
+  }, [stations, strategy, startingStation, endingStation]);
 
   const [path, setPath] = useState<Station[]>([]);
 
   useEffect(() => {
     findPath();
-  }, [startingStation, endingStation, strategy]);
+  }, [startingStation, endingStation, strategy, graph]);
 
   function findShortestPath(startId: string, endId: string): string[] | null {
     const queue: { id: string; line: number; distance: number }[] = [];
@@ -139,14 +139,27 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
     // Reconstruct the path (no duplication for line switches)
     const path: string[] = [];
+    // let totalWeight = 0;
     let currentKey: string | null = endKey;
     while (currentKey) {
       const [stationId] = currentKey.split("_");
       path.unshift(stationId); // Add station to the path
+      // const prevKey = previous[currentKey]
+      //   ? `${previous[currentKey]!.id}_${previous[currentKey]!.line}`
+      //   : null;
+
+      // if (prevKey) {
+      //   const connection = graph[previous[currentKey]!.id].connections.find(
+      //     (c) => c.station === stationId,
+      //   );
+      //   totalWeight += connection?.weight ?? 1; // Default weight is 1 if undefined
+      // }
       currentKey = previous[currentKey]
         ? `${previous[currentKey]!.id}_${previous[currentKey]!.line}`
         : null;
     }
+
+    // console.log(totalWeight);
 
     return path;
   }
@@ -158,7 +171,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     for (const station of stations.reverse()) {
       if (!station.connections.length) continue;
       const [connection] = station.connections;
-      const [direction] = connection.direction;
+
+      let direction = connection.direction.find((dir) =>
+        Object.keys(path).includes(dir),
+      );
+
+      if (!direction) {
+        direction = connection.direction[0];
+      }
+
       path[direction] = station;
     }
 
@@ -167,7 +188,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       const [connection] = station.connections;
       path[direction].direction = {
         to: connection.line,
-        direction: station.connections[0].direction[0],
+        direction,
       };
     }
 
