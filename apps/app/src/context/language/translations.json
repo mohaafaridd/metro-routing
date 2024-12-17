@@ -107,7 +107,8 @@
     "made-by": "Made by",
     "mohammad-farid": "Mohammad Farid",
     "empty-path": "Please select starting and ending stations",
-    "station": "Station"
+    "station": "Station",
+    "maps": "Maps"
   },
   "ar": {
     "line-1": "الخط الأول",
@@ -217,6 +218,7 @@
     "made-by": "صنع بواسطة",
     "mohammad-farid": "محمد فريد",
     "empty-path": "يرجى اختيار محطة البداية والنهاية",
-    "station": "محطة"
+    "station": "محطة",
+    "maps": "الموقع"
   }
 }

@@ -143,17 +143,7 @@ const SwitchLine = ({ station }: { station: Station }) => {
 };
 
 const Location = ({ station }: { station: Station }) => {
-  return (
-    <a
-      href={`https://www.google.com/maps/@${station.location.latitude},${station.location.longitude},${15}z`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className="me-2 inline-flex items-center rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 transition-colors duration-150 hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">
-        <i className="fa-solid fa-location-dot me-1.5 h-2.5 w-2.5"></i> Location
-      </span>
-    </a>
-  );
+  const { t } = useLanguageContext();
 
   return (
     <a
@@ -161,21 +151,10 @@ const Location = ({ station }: { station: Station }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <svg
-        className="h-4 w-4 text-gray-800 transition-colors duration-300 hover:text-red-500 dark:text-white"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fillRule="evenodd"
-          d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z"
-          clipRule="evenodd"
-        />
-      </svg>
+      <span className="rounded bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800 transition-colors duration-300 hover:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800">
+        <i className="fa-solid fa-location-dot me-2 h-2.5 w-2.5"></i>{" "}
+        {t("maps")}
+      </span>
     </a>
   );
 };
@@ -184,7 +163,7 @@ export const Phase = ({ station }: PhaseProps) => {
   const { t } = useLanguageContext();
 
   return (
-    <li className="mb-10 ms-6">
+    <li className="mb-10 ms-6 flex flex-col gap-2">
       <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
         <Icon station={station} />
       </span>
@@ -192,11 +171,12 @@ export const Phase = ({ station }: PhaseProps) => {
       <div className="flex items-center gap-2">
         <h3 className="mb-1 ml-2 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
           {t(station.id)}
-          <Tag station={station} /> <Location station={station} />
+          <Tag station={station} />
         </h3>
       </div>
 
       <SwitchLine station={station} />
+      <Location station={station} />
     </li>
   );
 };

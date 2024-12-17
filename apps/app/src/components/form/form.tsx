@@ -1,7 +1,17 @@
-import { useAppContext } from "@/context/app";
+import { Station, useAppContext } from "@/context/app";
 import { useLanguageContext } from "@/context/language/use-language-context";
 import { useMemo } from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
+
+type Option = {
+  value: string;
+  label: string;
+};
+
+interface GroupedOption {
+  label: string;
+  options: Option[];
+}
 
 export const Form = () => {
   const { language, t } = useLanguageContext();
@@ -13,22 +23,55 @@ export const Form = () => {
     setEndingStation,
   } = useAppContext();
 
-  const startingStationsOptions = useMemo(() => {
+  const startingStationsOptions: GroupedOption[] = useMemo(() => {
     return stations
-      .filter((station) => station.id !== endingStation?.id)
-      .map((station) => ({
-        value: station.id,
-        label: t(station.id),
-      }));
+      .reduce(
+        (acc, current) => {
+          for (const line of current.lines) {
+            acc[line - 1].push(current);
+          }
+
+          return acc;
+        },
+        [[], [], []] as Station[][],
+      )
+      .map((line, i) => {
+        return {
+          label: t(`line-${i + 1}`),
+          options: line.map((station) => {
+            return {
+              value: station.id,
+              label: t(station.id),
+            };
+          }),
+        };
+      });
   }, [endingStation, language]);
 
   const endingStationsOptions = useMemo(() => {
     return stations
       .filter((station) => station.id !== startingStation?.id)
-      .map((station) => ({
-        value: station.id,
-        label: t(station.id),
-      }));
+      .reduce(
+        (acc, current) => {
+          for (const line of current.lines) {
+            acc[line - 1].push(current);
+          }
+
+          return acc;
+        },
+        [[], [], []] as Station[][],
+      )
+      .map((line, i) => {
+        return {
+          label: t(`line-${i + 1}`),
+          options: line.map((station) => {
+            return {
+              value: station.id,
+              label: t(station.id),
+            };
+          }),
+        };
+      });
   }, [startingStation, language]);
 
   return (
@@ -43,7 +86,9 @@ export const Form = () => {
         <Select
           id="starting-station"
           options={startingStationsOptions}
-          onChange={(option) => setStartingStation(option?.value ?? "")}
+          onChange={(option: SingleValue<Option>) =>
+            setStartingStation(option?.value ?? "")
+          }
           placeholder={t("select-starting-station")}
           className="my-react-select-container"
           classNamePrefix="my-react-select"
@@ -60,8 +105,9 @@ export const Form = () => {
         <Select
           id="ending-station"
           options={endingStationsOptions}
-          onChange={(option) => setEndingStation(option?.value ?? "")}
-          isDisabled={!startingStation}
+          onChange={(option: SingleValue<Option>) =>
+            setEndingStation(option?.value ?? "")
+          }
           placeholder={t("select-ending-station")}
           className="my-react-select-container"
           classNamePrefix="my-react-select"
