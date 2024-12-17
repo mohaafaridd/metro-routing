@@ -97,7 +97,13 @@
     "wadi-el-nil": "Wadi El-Nil",
     "gamaat-el-dowal-al-arabiya": "Gamaat El Dowal Al-Arabiya",
     "bulaq-el-dakroor": "Bulaq El-Dakroor",
-    "switch": "Switch"
+    "switch": "Switch",
+    "shortest": "Shortest",
+    "least-switching": "Least Switching",
+    "ticket-20": "You have to pay 20 EGP",
+    "ticket-12": "You have to pay 12 EGP",
+    "ticket-10": "You have to pay 10 EGP",
+    "ticket-8": "You have to pay 8 EGP"
   },
   "ar": {
     "line-1": "الخط الأول",
@@ -197,6 +203,12 @@
     "bulaq-el-dakroor": "بولاق الدكرور",
     "switch-line": "تغيير الإتجاه إلي {{direction}}",
     "journey-start": "بداية الرحلة في إتجاه {{direction}}",
-    "switch": "تبديل"
+    "switch": "تبديل",
+    "shortest": "الأقصر",
+    "least-switching": "الأقل تبديل",
+    "ticket-20": "عليك دفع عشرين جنيهًا",
+    "ticket-12": "عليك دفع اثني عشر جنيهًا",
+    "ticket-10": "عليك دفع عشرة جنيهات",
+    "ticket-8": "عليك دفع ثمانية جنيهات"
   }
 }

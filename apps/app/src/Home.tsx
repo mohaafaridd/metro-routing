@@ -1,5 +1,7 @@
 import { Form } from "./components/form/form";
 import { LanguageSwitch } from "./components/language/language-switch";
+import { Price } from "./components/price/price";
+import { StrategySwitch } from "./components/strategy-switch/strategy-switch";
 import { ThemeSwitch } from "./components/theme/theme-switch";
 import { Timeline } from "./components/timeline/timeline";
 import { useLanguageContext } from "./context/language";
@@ -20,6 +22,8 @@ export const Home = () => {
 
       <div className="flex w-full flex-col gap-9 lg:w-1/4">
         <Form />
+        <StrategySwitch />
+        <Price />
         <Timeline />
       </div>
     </div>

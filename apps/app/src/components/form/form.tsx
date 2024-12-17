@@ -69,7 +69,8 @@ export const Form = () => {
       </div>
 
       <button
-        className="flex items-center justify-center gap-2 rounded-md bg-blue-500 p-2 text-white transition-colors duration-300 hover:bg-blue-600"
+        className="flex items-center justify-center gap-2 rounded-md bg-blue-500 p-2 text-white transition-colors duration-300 hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+        disabled={!startingStation || !endingStation}
         onClick={() => {
           setStartingStation(endingStation?.id ?? "");
           setEndingStation(startingStation?.id ?? "");

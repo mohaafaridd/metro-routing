@@ -1,5 +1,10 @@
 import { createContext } from "react";
 
+export enum Strategy {
+  SHORTEST = "shortest",
+  LEAST_SWITCHING = "least-switching",
+}
+
 interface Connection {
   station: string;
   direction: string[];
@@ -32,6 +37,8 @@ interface AppContextType {
   endingStation: Station | null;
   setEndingStation: (id: string) => void;
   path: Station[];
+  strategy: Strategy;
+  setStrategy: (strategy: Strategy) => void;
 }
 
 export const AppContext = createContext<AppContextType>({
@@ -41,4 +48,6 @@ export const AppContext = createContext<AppContextType>({
   endingStation: null,
   setEndingStation: () => {},
   path: [],
+  strategy: Strategy.STANDARD,
+  setStrategy: () => {},
 });

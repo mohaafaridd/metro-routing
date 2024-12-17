@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import { AppContext, Station } from "./app.context";
+import { AppContext, Station, Strategy } from "./app.context";
 import StationsJSON from "./stations.json";
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [startingStation, setStartingStation] = useState<Station | null>(null);
   const [endingStation, setEndingStation] = useState<Station | null>(null);
+  const [strategy, setStrategy] = useState<Strategy>(Strategy.SHORTEST);
 
   const stations = useMemo<Station[]>(() => StationsJSON, []);
 
   const graph = useMemo<Record<string, Station>>(() => {
+    const SHORTEST_WEIGHT = 10;
+    const LEAST_SWITCHING_WEIGHT = 1;
     return stations
       .map((station) => {
         station.connections = station.connections.map((connection) => {
@@ -17,7 +20,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
             weight: startingStation?.lines.includes(connection.line)
               ? 1
               : endingStation?.lines.includes(connection.line)
-                ? 2
+                ? strategy === Strategy.SHORTEST
+                  ? SHORTEST_WEIGHT
+                  : LEAST_SWITCHING_WEIGHT
                 : 10,
           };
         });
@@ -31,13 +36,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         },
         {} as Record<string, Station>,
       );
-  }, [stations]);
+  }, [stations, strategy]);
 
   const [path, setPath] = useState<Station[]>([]);
 
   useEffect(() => {
     findPath();
-  }, [startingStation, endingStation]);
+  }, [startingStation, endingStation, strategy]);
 
   function findShortestPath(startId: string, endId: string): string[] | null {
     const queue: { id: string; line: number; distance: number }[] = [];
@@ -212,6 +217,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
           setEndingStation(
             stations.find((station) => station.id === id) ?? null,
           );
+        },
+        strategy,
+        setStrategy: (strategy) => {
+          setStrategy(strategy);
         },
       }}
     >
