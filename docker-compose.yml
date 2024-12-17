@@ -11,3 +11,7 @@ services:
     ports:
       - '4230:3000'
 
+networks:
+  personal-network:
+    name: personal-network
+    external: true
